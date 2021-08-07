@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c89ed34001c417587b27eeb052bc7d, type: 3}
+  m_Name: Chat_Script
+  m_EditorClassIdentifier: 
+  sheets:
+  - name: MyScript
+    list:
+    - index: 1
+      MyTurn: 1
+      Script: "\uC548\uB155\uD558\uC138\uC694 \uBC18\uAC11\uC2B5\uB2C8\uB2E4"
+      Who: "\uB098"
+    - index: 2
+      MyTurn: 1
+      Script: "\uC5B4\uB5BB\uAC8C \uC624\uC168\uB098\uC694?"
+      Who: "\uB098"
+    - index: 3
+      MyTurn: 1
+      Script: "\uADF8\uB7FC \uC5B4\uB5BB\uAC8C \uD574\uC57C \uD560\uAE4C\uC694?"
+      Who: "\uB098"
+    - index: 4
+      MyTurn: 1
+      Script: "\uC544 \uADF8\uB7F0\uAC00\uC694??"
+      Who: "\uB098"
+    - index: 5
+      MyTurn: 1
+      Script: "\uC798 \uBD80\uD0C1\uB4DC\uB9BD\uB2C8\uB2E4"
+      Who: "\uB098"
+  - name: OtherScript
+    list:
+    - index: 1
+      MyTurn: 0
+      Script: "\uB124, \uBC18\uAC11\uC2B5\uB2C8\uB2E4"
+      Who: "\uD0C0\uC778"
+    - index: 2
+      MyTurn: 0
+      Script: "\uC5F0\uC608 \uAE30\uD68D\uC0AC\uC5D0\uC11C \uC654\uC2B5\uB2C8\uB2E4"
+      Who: "\uD0C0\uC778"
+    - index: 3
+      MyTurn: 0
+      Script: "\uC5F0\uC2B5\uC0DD\uC73C\uB85C \uC6B0\uC120 \uC2A4\uCE74\uC6B0\uD2B8
+        \uD558\uACE0 \uC2F6\uC5B4\uC11C\uC694"
+      Who: "\uD0C0\uC778"
+    - index: 4
+      MyTurn: 0
+      Script: "\uB124, \uC0DD\uAC01 \uC788\uC73C\uC138\uC694?"
+      Who: "\uD0C0\uC778"
+    - index: 5
+      MyTurn: 0
+      Script: "\uC798\uB410\uB124\uC694."
+      Who: "\uD0C0\uC778"
