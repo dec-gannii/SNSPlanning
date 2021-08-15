@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System; // 현재 시간을 알기 위해서 사용
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ChatManager : MonoBehaviour
 {
@@ -14,17 +15,22 @@ public class ChatManager : MonoBehaviour
     public MyScript script_Object;
     public int now_Script_Index;
     public int now_Sheet_Index;
+    private bool isGameStart;
     private bool isClicked;
+
+    public GameObject explanation_Panel;
+    public GameObject popup_Panel;
 
     private void Start()
     {
+        isGameStart = false;
         isClicked = false;
         //Chat(false, "blah", "bad", Resources.Load<Texture2D>("ETC/Suspect"));
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isClicked)
+        if (Input.GetMouseButtonDown(0) && !isClicked && isGameStart.Equals(true))
         {
             isClicked = true;
             ScriptLoad(now_Script_Index);
@@ -56,7 +62,7 @@ public class ChatManager : MonoBehaviour
     }
 
     // 모든 채팅의 판단을 하는 함수
-    public void Chat (bool isSend, string text, string user, Texture2D picture)
+    public void Chat(bool isSend, string text, string user, Texture2D picture)
     {
         if (text.Trim() == "") // space나 Enter를 걸러줌, 즉, 공백일 때는 아래 부분이 실행되지 않게 함
             return;
@@ -86,7 +92,8 @@ public class ChatManager : MonoBehaviour
                     break;
                 }
             }
-        } else
+        }
+        else
         {
             area.boxRect.sizeDelta = new Vector2(X, Y);
         }
@@ -101,7 +108,8 @@ public class ChatManager : MonoBehaviour
         if (t.Hour == 0)
         {
             hour = 12;
-        } else if (t.Hour > 12)
+        }
+        else if (t.Hour > 12)
         {
             hour -= 12;
         }
@@ -183,5 +191,23 @@ public class ChatManager : MonoBehaviour
     void ScrollDelay()
     {
         scrollBar.value = 0;
+    }
+
+    public void Game_Start()
+    {
+        explanation_Panel.SetActive(false);
+        isGameStart = true;
+    }
+
+    public void Popup_Start()
+    {
+        isGameStart = false;
+        popup_Panel.SetActive(true);
+    }
+
+    public void Popup_Close()
+    {
+        isGameStart = true;
+        popup_Panel.SetActive(false);
     }
 }
