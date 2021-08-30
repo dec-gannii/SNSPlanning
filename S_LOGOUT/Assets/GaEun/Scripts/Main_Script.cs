@@ -282,6 +282,11 @@ public class Main_Script : MonoBehaviour
 
     }
 
+    public void Open_Chat_Profile_01 ()
+    {
+        Application.OpenURL("http://pf.kakao.com/_FyKxhs");
+    }
+
     public void Call_Center_02()
     {
         // ?????? ?????? ?????? ???? - 02
