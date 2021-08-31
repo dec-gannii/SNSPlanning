@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class ChatManager : MonoBehaviour
 {
@@ -266,9 +267,8 @@ public class ChatManager : MonoBehaviour
 
     public void Popup_Ok()
     {
-        //초기엔딩과 연결
-        popup_Panel.SetActive(false);
-        middle_Ending_Panel.SetActive(true);
+        TotalGameManager.instance.popup_OK = true;
+        SceneManager.LoadScene("Main_Scene");
     }
 
     public void Popup_Close()
@@ -289,8 +289,8 @@ public class ChatManager : MonoBehaviour
 
     public void Answer1_2()
     {
-        //초기엔딩과 연결
-
+        TotalGameManager.instance.popup_OK = true;
+        SceneManager.LoadScene("Main_Scene");
     }
 
     public void Answer2_1()

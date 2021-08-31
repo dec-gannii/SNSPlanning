@@ -51,10 +51,17 @@ public class Main_Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         game_Sprites = Resources.LoadAll<Sprite>("CardNews/Game_Ending");
         random_Chatting_Sprites = Resources.LoadAll<Sprite>("CardNews/Random_Chatting_Ending");
         middle_Ending01_Sprites = Resources.LoadAll<Sprite>("CardNews/Middle_Ending01");
         middle_Ending02_Sprites = Resources.LoadAll<Sprite>("CardNews/Middle_Ending02");
+
+        if (TotalGameManager.instance.Is_PopUp_OK_Button_Clicked() == true)
+        {
+            show_Random_Chatting_Middle_Ending_Card_News_Panel.SetActive(true);
+            TotalGameManager.instance.popup_OK = false;
+        } else { 
 
         if (splash_Panel.activeSelf == false)
         {
@@ -76,6 +83,7 @@ public class Main_Script : MonoBehaviour
         else
         {
             nickname_Text.text = "???? ?????? ???? ????????.";
+        }
         }
     }
 
@@ -446,4 +454,5 @@ public class Main_Script : MonoBehaviour
         random_Chatting_Explain_Player_Situation_Panel.SetActive(false);
         SceneManager.LoadScene("rChatting");
     }
+
 }

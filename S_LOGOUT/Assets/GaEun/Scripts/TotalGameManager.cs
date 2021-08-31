@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TotalGameManager : MonoBehaviour
 {
     public static TotalGameManager instance;
     public string nickname;
+    public bool popup_OK;
 
     private void Awake()
     {
@@ -24,6 +26,7 @@ public class TotalGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        popup_OK = false;
         if (PlayerPrefs.HasKey("nickname"))
         {
             nickname = PlayerPrefs.GetString("nickname");
@@ -32,13 +35,18 @@ public class TotalGameManager : MonoBehaviour
 
     public void SetNickName(string name)
     {
-        Debug.Log("확인 버튼 입력 값 넘김");
+        Debug.Log("???? ???? ???? ?? ????");
         nickname = name;
 
         if (!PlayerPrefs.HasKey("nickname"))
         {
             PlayerPrefs.SetString("nickname", nickname);
-            Debug.Log(nickname + "이 저장되었습니다.");
+            Debug.Log(nickname + "?? ??????????????.");
         }
+    }
+
+    public bool Is_PopUp_OK_Button_Clicked()
+    {
+        return popup_OK;
     }
 }
