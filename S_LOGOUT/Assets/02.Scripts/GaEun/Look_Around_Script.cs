@@ -36,10 +36,10 @@ public class Look_Around_Script : MonoBehaviour
     void Start()
     {
         // 카드뉴스 이미지들 해당하는 이미지들별로 배열에 저장
-        game_Sprites = Resources.LoadAll<Sprite>("CardNews/Game_Ending");
-        random_Chatting_Sprites = Resources.LoadAll<Sprite>("CardNews/Random_Chatting_Ending");
-        middle_Ending01_Sprites = Resources.LoadAll<Sprite>("CardNews/Middle_Ending01");
-        middle_Ending02_Sprites = Resources.LoadAll<Sprite>("CardNews/Middle_Ending02");
+        game_Sprites = Resources.LoadAll<Sprite>("GaEun/CardNews/Game_Ending");
+        random_Chatting_Sprites = Resources.LoadAll<Sprite>("GaEun/CardNews/Random_Chatting_Ending");
+        middle_Ending01_Sprites = Resources.LoadAll<Sprite>("GaEun/CardNews/Middle_Ending01");
+        middle_Ending02_Sprites = Resources.LoadAll<Sprite>("GaEun/CardNews/Middle_Ending02");
 
         if (TotalGameManager.instance.Is_PopUp_OK_Button_Clicked() == true)
         {

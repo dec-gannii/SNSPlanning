@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/01.Scenes/YooJung/rChatting.unity
+- path: Assets/01.Scenes/GaEun/Main_Scene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

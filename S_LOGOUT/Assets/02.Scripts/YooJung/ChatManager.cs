@@ -35,7 +35,7 @@ public class ChatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        message_Sprites = Resources.LoadAll<Sprite>("Message_Images");
+        message_Sprites = Resources.LoadAll<Sprite>("GaEun/Message_Images");
         isClicked = false;
         isGameStart = false;
     }
