@@ -1141,7 +1141,7 @@ MonoBehaviour:
   redArea: {fileID: 2536255792562429118, guid: 94dfab3ab9b1c4a968bd7a1b37a549c7, type: 3}
   blueAreaImage: {fileID: 7497474838325187365, guid: 29228e04ac4584435b1e2f24408cb967, type: 3}
   redAreaImage: {fileID: 2536255792562429118, guid: 23ebe8a55df634563bb408dffe2d92c3, type: 3}
-  dateArea: {fileID: 0}
+  dateArea: {fileID: 9196306234756099594, guid: f3331fa10762a48afa835cb2db3ed2ea, type: 3}
   contentRect: {fileID: 284298781}
   scrollBar: {fileID: 306354954}
   script_Object: {fileID: 11400000, guid: f5f141367ab4241a2a1df9c56db447e0, type: 2}

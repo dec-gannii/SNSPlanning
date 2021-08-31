@@ -165,10 +165,7 @@ public class ChatManager : MonoBehaviour
 
         }
 
-
-        //데이트박스 오류
-
-        /*DateTime t = DateTime.Now;
+        DateTime t = DateTime.Now;
 
         area.time = t.ToString("yyyy-MM-dd-HH-mm");
         area.user = user;
@@ -183,41 +180,13 @@ public class ChatManager : MonoBehaviour
         {
             hour -= 12;
         }
-
-        area.timeText.text = (t.Hour > 12 ? "오후" : "오전") + hour + ":" + t.Minute.ToString("D2");
-
-        bool isSame = lastArea != null && lastArea.time == area.time && lastArea.user == area.user;
-
-        if (isSame)
-        {
-            lastArea.timeText.text = "";
-
-        }
-
-        area.tail.SetActive(!isSame);
-
-        if (!isSend)
-        {
-            area.userImage.gameObject.SetActive(!isSame);
-            area.userText.gameObject.SetActive(!isSame);
-            area.userText.text = area.user;
-
-            if (picture != null)
-            {
-                area.userImage.sprite = Sprite.Create(picture, new Rect(0, 0, picture.width, picture.height), new Vector2(0.5f, 0.5f));
-            }
-        }
-
-
-        if (lastArea != null)
-            Debug.Log(lastArea.time.Substring(0, 10));
-        //Debug.Log(area.time.Substring(0, 10);
+        area.timeText.text = (t.Hour > 12 ? "오후 " : "오전 ") + hour + ":" + t.Minute.ToString("D2");
 
         if (lastArea != null && lastArea.time.Substring(0, 10) != area.time.Substring(0, 10))
         {
             Transform curDateArea = Instantiate(dateArea).transform;
-
             curDateArea.SetParent(contentRect.transform, false);
+
             curDateArea.SetSiblingIndex(curDateArea.GetSiblingIndex() - 1);
 
             string week = "";
@@ -245,9 +214,7 @@ public class ChatManager : MonoBehaviour
                     week = "토";
                     break;
             }
-
-            curDateArea.GetComponent<AreaScript>().dateText.text = t.Year + "년" + t.Month + "월" + t.Day + "일" + week + "요일";
-
+            curDateArea.GetComponent<AreaScript>().dateText.text = t.Year + "년 " + t.Month + "월 " + t.Day + "일 " + week + "요일";
         }
 
         Fit(area.boxRect);
@@ -255,11 +222,10 @@ public class ChatManager : MonoBehaviour
         Fit(contentRect);
         lastArea = area;
 
-
         if (!isSend && !isBottom)
             return;
 
-        Invoke("ScrollDelay", 0.03f);*/
+        Invoke("ScrollDelay", 0.03f);
 
     }
 
