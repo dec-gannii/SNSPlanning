@@ -440,4 +440,10 @@ public class Main_Script : MonoBehaviour
             middle_Cardnews02_Image_View.sprite = Current_Cardnews;
         }
     }
+
+    public void From_Explain_Player_Situation_To_Random_Chatting_Start()
+    {
+        random_Chatting_Explain_Player_Situation_Panel.SetActive(false);
+        SceneManager.LoadScene("rChatting");
+    }
 }
