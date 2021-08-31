@@ -51,7 +51,6 @@ public class Main_Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         game_Sprites = Resources.LoadAll<Sprite>("CardNews/Game_Ending");
         random_Chatting_Sprites = Resources.LoadAll<Sprite>("CardNews/Random_Chatting_Ending");
         middle_Ending01_Sprites = Resources.LoadAll<Sprite>("CardNews/Middle_Ending01");
@@ -59,8 +58,11 @@ public class Main_Script : MonoBehaviour
 
         if (TotalGameManager.instance.Is_PopUp_OK_Button_Clicked() == true)
         {
+            index = 0;
+
+            Current_Cardnews = middle_Ending02_Sprites[index];
             show_Random_Chatting_Middle_Ending_Card_News_Panel.SetActive(true);
-            TotalGameManager.instance.popup_OK = false;
+            TotalGameManager.instance.set_Popup_Clicked(false);
         } else { 
 
         if (splash_Panel.activeSelf == false)
@@ -404,6 +406,7 @@ public class Main_Script : MonoBehaviour
 
     public void Show_Next_CardNews()
     {
+        Debug.Log("clicked");
         // ???? ?????????? ?????????? ???? ??????
         // ???? ?????????? ???????? ???? ???? ???? index?? ???????? ???? ???????? ???????? ????
         if (Current_Cardnews == random_Chatting_Sprites[index])
@@ -439,6 +442,8 @@ public class Main_Script : MonoBehaviour
         }
         else if (Current_Cardnews == middle_Ending02_Sprites[index])
         {
+            Debug.Log("entered");
+            Debug.Log(index);
             if (index == middle_Ending02_Sprites.Length - 1)
             {
                 return;

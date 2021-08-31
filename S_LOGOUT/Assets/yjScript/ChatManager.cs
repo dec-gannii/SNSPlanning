@@ -267,7 +267,7 @@ public class ChatManager : MonoBehaviour
 
     public void Popup_Ok()
     {
-        TotalGameManager.instance.popup_OK = true;
+        TotalGameManager.instance.set_Popup_Clicked(true);
         SceneManager.LoadScene("Main_Scene");
     }
 
@@ -289,7 +289,7 @@ public class ChatManager : MonoBehaviour
 
     public void Answer1_2()
     {
-        TotalGameManager.instance.popup_OK = true;
+        TotalGameManager.instance.set_Popup_Clicked(true);
         SceneManager.LoadScene("Main_Scene");
     }
 

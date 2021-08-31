@@ -7,7 +7,7 @@ public class TotalGameManager : MonoBehaviour
 {
     public static TotalGameManager instance;
     public string nickname;
-    public bool popup_OK;
+    private bool popup_OK;
 
     private void Awake()
     {
@@ -27,6 +27,7 @@ public class TotalGameManager : MonoBehaviour
     void Start()
     {
         popup_OK = false;
+
         if (PlayerPrefs.HasKey("nickname"))
         {
             nickname = PlayerPrefs.GetString("nickname");
@@ -48,5 +49,10 @@ public class TotalGameManager : MonoBehaviour
     public bool Is_PopUp_OK_Button_Clicked()
     {
         return popup_OK;
+    }
+
+    public void set_Popup_Clicked(bool clicked)
+    {
+        popup_OK = clicked;
     }
 }
