@@ -168,7 +168,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 42
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -496,3 +496,4 @@ MonoBehaviour:
   userImage: {fileID: 0}
   time: 
   user: 
+  messageImage: {fileID: 0}

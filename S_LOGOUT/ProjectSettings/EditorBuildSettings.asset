@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes 1/rChatting.unity
     guid: 14e001f5e90d744f8832d941b8817d3d
+  - enabled: 1
+    path: Assets/Scenes/Look_Around_Scene.unity
+    guid: e6a009e0501d4487988965823ae8bbe5
   m_configObjects: {}

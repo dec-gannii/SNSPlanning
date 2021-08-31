@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class ChatManager : MonoBehaviour
 {
-    public GameObject blueArea, redArea, dateArea;
+    public GameObject blueArea, redArea, blueAreaImage, redAreaImage, dateArea;
     public RectTransform contentRect;
     public Scrollbar scrollBar;
     AreaScript lastArea;
@@ -24,18 +24,18 @@ public class ChatManager : MonoBehaviour
     public GameObject answer2_Panel;
     public GameObject answer3_Panel;
 
-    public GameObject middle_Ending_Panel;
-
     public string[] Answers;
 
     public Button Btn2_1, Btn2_2, Btn3_1, Btn3_2, Btn3_3;
     public Text b2_1, b2_2, b3_1, b3_2, b3_3;
     public string text;
 
+    Sprite[] message_Sprites;
 
     // Start is called before the first frame update
     void Start()
     {
+        message_Sprites = Resources.LoadAll<Sprite>("Message_Images");
         isClicked = false;
         isGameStart = false;
     }
@@ -80,8 +80,7 @@ public class ChatManager : MonoBehaviour
                 Btn2_1.onClick.AddListener(Answer1_1);
                 Btn2_2.onClick.AddListener(Answer1_2);
             }
-
-            if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 3)
+            else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 3)
             {
                 answer2_Panel.SetActive(true);
                 isGameStart = false;
@@ -93,8 +92,7 @@ public class ChatManager : MonoBehaviour
                 Btn2_2.onClick.AddListener(Answer2_2);
 
             }
-
-            if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 5)
+            else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 5)
             {
                 answer2_Panel.SetActive(true);
                 isGameStart = false;
@@ -108,43 +106,65 @@ public class ChatManager : MonoBehaviour
         }
     }
 
-
-
-    public void Chat(bool isSend, string text, string user, Texture2D picture)
+    // 이미지 전송할 때 필요한 매개변수로 messagePicture 추가 (없는 경우도 있으니까 default 매개변수로 null 지정)
+    public void Chat(bool isSend, string text, string user, Texture2D picture, Sprite messagePicture = null)
     {
         if (text.Trim() == "")
             return;
+
         bool isBottom = scrollBar.value <= 0.00001f;
-        //print(text);
-        AreaScript area = Instantiate(isSend ? blueArea : redArea).GetComponent<AreaScript>();
-        area.transform.SetParent(contentRect.transform, false);
-        area.boxRect.sizeDelta = new Vector2(600, area.boxRect.sizeDelta.y);
-        area.textRect.GetComponent<Text>().text = text;
 
-        Fit(area.boxRect);
+        AreaScript area;
 
-        float X = area.textRect.sizeDelta.x + 42;
-        float Y = area.textRect.sizeDelta.y;
-
-        if (Y > 49)
+        // 이미지를 보내는 게 아니라면
+        if (messagePicture != null)
         {
-            for (int i = 0; i < 200; i++)
-            {
-                area.boxRect.sizeDelta = new Vector2(X - i * 2, area.boxRect.sizeDelta.y);
-                Fit(area.boxRect);
+            // 텍스트는 그냥 없애고
+            text = "";
 
-                if (Y != area.textRect.sizeDelta.y)
-                {
-                    area.boxRect.sizeDelta = new Vector2(X - (i * 2) + 2, Y);
-                    break;
-                }
-            }
+            // 내가 보내는 거면 blueAreaImage, 상대방이 보내는 거면 redAreaImage
+            area = Instantiate(isSend ? blueAreaImage : redAreaImage).GetComponent<AreaScript>();
+
+            // area의 messageImage의 sprite를 매개변수로 전달받은 이미지로 설정
+            area.messageImage.sprite = messagePicture;
+            // content 아래로 생기도록 하기
+            area.transform.SetParent(contentRect.transform, false);
+
+            // 보내는 이미지 사이즈에 맞춰서 칸 사이즈 조절
+            Fit(area.messageImage.GetComponent<RectTransform>());
         }
         else
         {
-            area.boxRect.sizeDelta = new Vector2(X, Y);
+            area = Instantiate(isSend ? blueArea : redArea).GetComponent<AreaScript>();
+
+            area.transform.SetParent(contentRect.transform, false);
+
+            Fit(area.boxRect);
+
+            float X = area.textRect.sizeDelta.x + 42;
+            float Y = area.textRect.sizeDelta.y;
+
+            if (Y > 49)
+            {
+                for (int i = 0; i < 200; i++)
+                {
+                    area.boxRect.sizeDelta = new Vector2(X - i * 2, area.boxRect.sizeDelta.y);
+                    Fit(area.boxRect);
+
+                    if (Y != area.textRect.sizeDelta.y)
+                    {
+                        area.boxRect.sizeDelta = new Vector2(X - (i * 2) + 2, Y);
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                area.boxRect.sizeDelta = new Vector2(X, Y);
+            }
+
         }
-        
+
 
         //데이트박스 오류
 
@@ -267,8 +287,8 @@ public class ChatManager : MonoBehaviour
 
     public void Popup_Ok()
     {
-        TotalGameManager.instance.set_Popup_Clicked(true);
-        SceneManager.LoadScene("Main_Scene");
+        TotalGameManager.instance.Set_Popup_Clicked(true);
+        SceneManager.LoadScene("Look_Around_Scene");
     }
 
     public void Popup_Close()
@@ -279,8 +299,10 @@ public class ChatManager : MonoBehaviour
 
     public void Answer1_1()
     {
-        Chat(true, text, "나", null);
-        text = ("넹 저야 땡큐죠 ㅋㅋㅋ");
+        //Chat(true, text, "나", null);
+        text = "넹 저야 땡큐죠 ㅋㅋㅋ";
+        //내가 이미지 포함해서 보내면
+        Chat(true, text, "나", null, message_Sprites[0]);
 
         answer2_Panel.SetActive(false);
         isGameStart = true;
@@ -289,14 +311,16 @@ public class ChatManager : MonoBehaviour
 
     public void Answer1_2()
     {
-        TotalGameManager.instance.set_Popup_Clicked(true);
-        SceneManager.LoadScene("Main_Scene");
+        TotalGameManager.instance.Set_Popup_Clicked(true);
+        SceneManager.LoadScene("Look_Around_Scene");
     }
 
     public void Answer2_1()
     {
-        Chat(true, text, "나", null);
-        text = ("저 비싼데 ㅋㅋㅋ");
+        // 상대방이 이미지 포함해서 보내면
+        //Chat(true, text, "나", null, message_Sprites[1]);
+        Chat(false, text, "상대방", null, message_Sprites[1]);
+        text = "test";
 
         answer2_Panel.SetActive(false);
         isGameStart = true;
@@ -305,8 +329,8 @@ public class ChatManager : MonoBehaviour
 
     public void Answer2_2()
     {
-        Chat(true, text, "나", null);
-        text = ("죄송해요… 사진은 좀…");
+        Chat(true, text, "나", null, null);
+        text = "죄송해요… 사진은 좀…";
 
         answer2_Panel.SetActive(false);
         isGameStart = true;
@@ -315,8 +339,8 @@ public class ChatManager : MonoBehaviour
 
     public void Answer3_1()
     {
-        Chat(true, text, "나", null);
-        text = ("ㅋㅋㅋㅋㅋㅋㅋㅋㅋ하나씩 보내요 하나씩 ㅋㅋㅋ");
+        Chat(true, text, "나", null, null);
+        text = "ㅋㅋㅋㅋㅋㅋㅋㅋㅋ하나씩 보내요 하나씩 ㅋㅋㅋ";
 
         answer2_Panel.SetActive(false);
         isGameStart = true;
@@ -325,8 +349,8 @@ public class ChatManager : MonoBehaviour
 
     public void Answer3_2()
     {
-        Chat(true, text, "나", null);
-        text = ("ㄴㄴㄴ 싫어요");
+        Chat(true, text, "나", null, null);
+        text = "ㄴㄴㄴ 싫어요";
 
         answer2_Panel.SetActive(false);
         isGameStart = true;

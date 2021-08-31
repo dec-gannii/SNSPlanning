@@ -1139,6 +1139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blueArea: {fileID: 7497474838325187365, guid: 183ec57c965a54763b21971911a69b93, type: 3}
   redArea: {fileID: 2536255792562429118, guid: 94dfab3ab9b1c4a968bd7a1b37a549c7, type: 3}
+  blueAreaImage: {fileID: 7497474838325187365, guid: 29228e04ac4584435b1e2f24408cb967, type: 3}
+  redAreaImage: {fileID: 2536255792562429118, guid: 23ebe8a55df634563bb408dffe2d92c3, type: 3}
   dateArea: {fileID: 0}
   contentRect: {fileID: 284298781}
   scrollBar: {fileID: 306354954}
@@ -1149,7 +1151,6 @@ MonoBehaviour:
   popup_Panel: {fileID: 196816198}
   answer2_Panel: {fileID: 28163010}
   answer3_Panel: {fileID: 802193409}
-  middle_Ending_Panel: {fileID: 0}
   Answers:
   - "\uC544\uC774\uB514\uB97C \uC54C\uB824\uC900\uB2E4"
   - "\uC544\uC774\uB514\uB97C \uC54C\uB824\uC8FC\uC9C0 \uC54A\uB294\uB2E4"
