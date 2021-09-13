@@ -84,15 +84,22 @@ public class Main_Script : MonoBehaviour
     // Alert Panel에서 다음으로 넘어가기 버튼 클릭하면 실행
     public void From_Alert_To_Input_Nickname_Panel()
     {
-        alert_Panel.gameObject.SetActive(false);
-        input_Nickname_Panel.SetActive(true);
+        if (PlayerPrefs.HasKey("nickname"))
+        {
+            alert_Panel.gameObject.SetActive(false);
+            select_Interest_Panel.SetActive(true);
+        }
+        else
+        {
+            alert_Panel.gameObject.SetActive(false);
+            input_Nickname_Panel.SetActive(true);
+        }
     }
 
     // Change Panel From Input Nickname To Select Interest
     // Input Nickname Panel에서 닉네임 입력 후 확인 버튼 클릭하면 실행
     public void From_Input_Nickname_To_Select_Interest_Panel()
     {
-
         // 아무것도 입력하지 않으면 확인 버튼 무시
         if (nickNameField.text == "") return;
 

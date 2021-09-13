@@ -18,12 +18,15 @@ public class Look_Around_Script : MonoBehaviour
     public GameObject show_Random_Chatting_Final_Ending_Card_News_Panel;
     public GameObject show_Random_Chatting_Middle_Ending_Card_News_Panel;
     public GameObject show_Information_Panel;
+    public GameObject info_Detail_Panel;
     public GameObject report_Panel;
 
     public Image game_Final_Cardnews_Image_View;
     public Image random_Chatting_Final_Cardnews_Image_View;
     public Image middle_Cardnews01_Image_View;
     public Image middle_Cardnews02_Image_View;
+
+    public Image Infographic_Image_View;
 
     Sprite Current_Cardnews;
 
@@ -33,6 +36,8 @@ public class Look_Around_Script : MonoBehaviour
     Sprite[] middle_Ending01_Sprites;
     Sprite[] middle_Ending02_Sprites;
 
+    Sprite[] Infographics;
+
     void Start()
     {
         // 카드뉴스 이미지들 해당하는 이미지들별로 배열에 저장
@@ -40,6 +45,8 @@ public class Look_Around_Script : MonoBehaviour
         random_Chatting_Sprites = Resources.LoadAll<Sprite>("GaEun/CardNews/Random_Chatting_Ending");
         middle_Ending01_Sprites = Resources.LoadAll<Sprite>("GaEun/CardNews/Middle_Ending01");
         middle_Ending02_Sprites = Resources.LoadAll<Sprite>("GaEun/CardNews/Middle_Ending02");
+
+        Infographics = Resources.LoadAll<Sprite>("GaEun/Images/Info_Detail_Panel");
 
         if (TotalGameManager.instance.Is_PopUp_OK_Button_Clicked() == true)
         {
@@ -54,6 +61,20 @@ public class Look_Around_Script : MonoBehaviour
 
             // TotalGameManager의 setPopupClicked 메소드 사용해서 TotalGameManger의 popup_Clicked 변수 다시 false로 변경
             TotalGameManager.instance.Set_Popup_Clicked(false);
+        }
+        else if (TotalGameManager.instance.Is_Ended_Button_Clicked() == true)
+        {
+            // TotalGameManager의 isPopupOKButtonClicked 메소드에서 리턴된 팝업 클릭 여부가 참이면
+            // index를 0으로 설정하고, 현재 카드뉴스를 초기엔딩 카드뉴스의 0번째 이미지로 설정
+            index = 0;
+
+            Current_Cardnews = random_Chatting_Sprites[index];
+
+            // 랜덤채팅에서 최종 엔딩으로 가는 경우
+            show_Random_Chatting_Final_Ending_Card_News_Panel.SetActive(true);
+
+            // TotalGameManager의 setIsEnded 메소드 사용해서 TotalGameManger의 isEnded 변수 다시 false로 변경
+            TotalGameManager.instance.Set_Is_Ended(false);
         }
     }
     // Change Panel From Look Around To Help Detail
@@ -149,6 +170,12 @@ public class Look_Around_Script : MonoBehaviour
         show_Random_Chatting_Final_Ending_Card_News_Panel.SetActive(true);
     }
 
+    public void From_Show_Information_To_Info_Detail_Panel()
+    {
+        show_Information_Panel.SetActive(false);
+        info_Detail_Panel.SetActive(true);
+    }
+
     // Main 화면으로 돌아가기 위한 메소드
     // 활성화 상태에 문제가 될만한 Panel들을 모두 비활성화하고, Main 화면을 활성화한다.
     public void Go_Main()
@@ -172,6 +199,12 @@ public class Look_Around_Script : MonoBehaviour
         report_Panel.SetActive(false);
 
         look_Around_Panel.SetActive(true);
+    }
+
+    public void Go_Info_Main()
+    {
+        info_Detail_Panel.SetActive(false);
+        show_Information_Panel.SetActive(true);
     }
 
     public void Call_Center_01()
@@ -217,38 +250,38 @@ public class Look_Around_Script : MonoBehaviour
 
     public void Open_Article_Site_01()
     {
-        // 관련 기사 사이트에 연결한다.
-        Application.OpenURL("https://www.bbc.com/korean/news-46148607");
+        Infographic_Image_View.sprite = Infographics[0];
+        From_Show_Information_To_Info_Detail_Panel();
     }
 
     public void Open_Article_Site_02()
     {
-        // 관련 기사 사이트에 연결한다.
-        Application.OpenURL("https://news.kbs.co.kr/news/view.do?ncd=4420465");
+        Infographic_Image_View.sprite = Infographics[1];
+        From_Show_Information_To_Info_Detail_Panel();
     }
 
     public void Open_Article_Site_03()
     {
-        // 관련 기사 사이트에 연결한다.
-        Application.OpenURL("https://www.womentimes.co.kr/news/articleView.html?idxno=50815");
+        Infographic_Image_View.sprite = Infographics[2];
+        From_Show_Information_To_Info_Detail_Panel();
     }
 
     public void Open_Article_Site_04()
     {
-        // 관련 기사 사이트에 연결한다.
-        Application.OpenURL("https://www.sedaily.com/NewsVIew/22L2Y9VAGC");
+        Infographic_Image_View.sprite = Infographics[3];
+        From_Show_Information_To_Info_Detail_Panel();
     }
 
     public void Open_Article_Site_05()
     {
-        // 관련 기사 사이트에 연결한다.
-        Application.OpenURL("https://news.lawtalk.co.kr/article/OA9N3VAJUDAX");
+        Infographic_Image_View.sprite = Infographics[4];
+        From_Show_Information_To_Info_Detail_Panel();
     }
 
     public void Open_Article_Site_06()
     {
-        // 관련 기사 사이트에 연결한다.
-        Application.OpenURL("http://www.boannews.com/media/view.asp?idx=97821");
+        Infographic_Image_View.sprite = Infographics[5];
+        From_Show_Information_To_Info_Detail_Panel();
     }
 
     public void Open_Report_Site()

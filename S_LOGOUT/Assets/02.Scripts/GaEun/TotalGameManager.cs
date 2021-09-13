@@ -12,6 +12,7 @@ public class TotalGameManager : MonoBehaviour
 
     // bool type으로 다른 scene의 panel 띄우기 관리
     private bool popup_OK;
+    private bool isEnded;
     private bool go_Main;
 
     private void Awake()
@@ -72,5 +73,17 @@ public class TotalGameManager : MonoBehaviour
     public void Set_Go_Main(bool clicked)
     {
         go_Main = clicked;
+    }
+
+    // 최종 엔딩 나타나는지 확인
+    public bool Is_Ended_Button_Clicked()
+    {
+        return isEnded;
+    }
+
+    // 변수 isEnded의 상태를 받은 매개변수로 설정
+    public void Set_Is_Ended(bool clicked)
+    {
+        isEnded = clicked;
     }
 }
