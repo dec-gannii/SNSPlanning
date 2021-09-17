@@ -1147,13 +1147,20 @@ MonoBehaviour:
   script_Object: {fileID: 11400000, guid: cf3403196b40d459a918b216311f85a9, type: 2}
   now_Script_Index: 0
   now_Sheet_Index: 0
+  isSubScript1: 0
+  isLoadSubScript1: 0
+  isSubScript2: 0
+  isLoadSubScript2: 0
+  isPhotoSend: 0
   script_Object2: {fileID: 11400000, guid: 668441edbad224ee98fb169c5469a439, type: 2}
   now_Script_Index2: 0
   now_Sheet_Index2: 0
+  script_Object3: {fileID: 11400000, guid: d4c49945a1bbe49a0a798627d54b15ba, type: 2}
+  now_Script_Index3: 0
+  now_Sheet_Index3: 0
   explain_Panel: {fileID: 90218514}
   popup_Panel: {fileID: 196816198}
   answer2_Panel: {fileID: 28163010}
-  answer3_Panel: {fileID: 802193409}
   Answers:
   - "\uC544\uC774\uB514\uB97C \uC54C\uB824\uC900\uB2E4"
   - "\uC544\uC774\uB514\uB97C \uC54C\uB824\uC8FC\uC9C0 \uC54A\uB294\uB2E4"
@@ -1161,14 +1168,8 @@ MonoBehaviour:
   - "\uC0AC\uC9C4\uC744 \uBCF4\uB0B4\uC9C0 \uC54A\uB294\uB2E4"
   Btn2_1: {fileID: 626405581}
   Btn2_2: {fileID: 2077960088}
-  Btn3_1: {fileID: 1135197804}
-  Btn3_2: {fileID: 132043405}
-  Btn3_3: {fileID: 619981428}
   b2_1: {fileID: 2084876925}
   b2_2: {fileID: 2087434583}
-  b3_1: {fileID: 1450330566}
-  b3_2: {fileID: 366490988}
-  b3_3: {fileID: 140935914}
   text: 
 --- !u!1 &366490986
 GameObject:
@@ -3635,7 +3636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3714,7 +3715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -63,6 +63,7 @@ public class Main_Script : MonoBehaviour
         //index = 0;
         splash_Panel.gameObject.SetActive(false);
         main_Panel.SetActive(true);
+        Sound_Manager.instance.Title_BGM_Play();
     }
 
     // Chagne Panel From Main To Alert
@@ -146,8 +147,16 @@ public class Main_Script : MonoBehaviour
     // random_Chatting_Explain_Player_Situation_Panel에서 '낯선 사람과 랜덤채팅하러 가기' 버튼 클릭 시 실행
     public void From_Explain_Player_Situation_To_Random_Chatting_Start()
     {
+        Sound_Manager.instance.Title_BGM_Stop();
         random_Chatting_Explain_Player_Situation_Panel.SetActive(false);
         SceneManager.LoadScene("rChatting");
+    }
+
+    public void From_Explain_Player_Situation_To_Game_Chatting_Start()
+    {
+        Sound_Manager.instance.Title_BGM_Stop();
+        random_Chatting_Explain_Player_Situation_Panel.SetActive(false);
+        SceneManager.LoadScene("gChatting");
     }
 
 }

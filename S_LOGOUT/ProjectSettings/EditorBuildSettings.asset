@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/GaEun/Look_Around_Scene.unity
     guid: e6a009e0501d4487988965823ae8bbe5
+  - enabled: 1
+    path: Assets/01.Scenes/YooJung/gChatting.unity
+    guid: 8e6b3f9b1111b4c368b2304e91fdb3e1
   m_configObjects: {}

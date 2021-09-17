@@ -6,7 +6,11 @@ ScriptsOnlyBuild:
     - Look_Around_Script
     - Main_Script
     - TotalGameManager
+    - gChatManager
+    - g_1_2
+    - main_g
     - rc_2_2
+    - rc_3_2
     - rc_main
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
@@ -75,27 +79,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1494}
     - Class: 114
-      Script: {instanceID: 2674}
+      Script: {instanceID: 2682}
     - Class: 114
-      Script: {instanceID: 2838}
+      Script: {instanceID: 2846}
     - Class: 114
-      Script: {instanceID: 2878}
+      Script: {instanceID: 2886}
     - Class: 114
-      Script: {instanceID: 3058}
+      Script: {instanceID: 3066}
     - Class: 114
-      Script: {instanceID: 3308}
+      Script: {instanceID: 3316}
     - Class: 114
-      Script: {instanceID: 3318}
+      Script: {instanceID: 3326}
     - Class: 114
-      Script: {instanceID: 3430}
+      Script: {instanceID: 3438}
     - Class: 114
-      Script: {instanceID: 3648}
+      Script: {instanceID: 3658}
     - Class: 114
-      Script: {instanceID: 3810}
+      Script: {instanceID: 3820}
     - Class: 114
-      Script: {instanceID: 4450}
+      Script: {instanceID: 4462}
     - Class: 114
-      Script: {instanceID: 4646}
+      Script: {instanceID: 4658}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -136,49 +140,122 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1494}
     - Class: 114
-      Script: {instanceID: 1582}
+      Script: {instanceID: 1584}
     - Class: 114
-      Script: {instanceID: 1692}
+      Script: {instanceID: 1586}
     - Class: 114
-      Script: {instanceID: 1860}
+      Script: {instanceID: 1696}
     - Class: 114
-      Script: {instanceID: 2252}
+      Script: {instanceID: 1864}
     - Class: 114
-      Script: {instanceID: 2526}
+      Script: {instanceID: 2258}
     - Class: 114
-      Script: {instanceID: 2674}
+      Script: {instanceID: 2534}
     - Class: 114
-      Script: {instanceID: 2838}
+      Script: {instanceID: 2682}
     - Class: 114
-      Script: {instanceID: 2886}
+      Script: {instanceID: 2846}
     - Class: 114
-      Script: {instanceID: 3058}
+      Script: {instanceID: 2894}
     - Class: 114
-      Script: {instanceID: 3182}
+      Script: {instanceID: 3066}
     - Class: 114
-      Script: {instanceID: 3308}
+      Script: {instanceID: 3190}
     - Class: 114
-      Script: {instanceID: 3430}
+      Script: {instanceID: 3316}
     - Class: 114
-      Script: {instanceID: 3648}
+      Script: {instanceID: 3438}
     - Class: 114
-      Script: {instanceID: 3810}
+      Script: {instanceID: 3588}
     - Class: 114
-      Script: {instanceID: 4422}
+      Script: {instanceID: 3658}
     - Class: 114
-      Script: {instanceID: 4450}
+      Script: {instanceID: 3820}
     - Class: 114
-      Script: {instanceID: 4624}
+      Script: {instanceID: 3860}
     - Class: 114
-      Script: {instanceID: 4752}
+      Script: {instanceID: 4434}
     - Class: 114
-      Script: {instanceID: 4778}
+      Script: {instanceID: 4462}
     - Class: 114
-      Script: {instanceID: 5160}
+      Script: {instanceID: 4636}
     - Class: 114
-      Script: {instanceID: 5204}
+      Script: {instanceID: 4764}
     - Class: 114
-      Script: {instanceID: 5486}
+      Script: {instanceID: 4790}
+    - Class: 114
+      Script: {instanceID: 5174}
+    - Class: 114
+      Script: {instanceID: 5218}
+    - Class: 114
+      Script: {instanceID: 5500}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/01.Scenes/YooJung/gChatting.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1492}
+    - Class: 114
+      Script: {instanceID: 1494}
+    - Class: 114
+      Script: {instanceID: 1584}
+    - Class: 114
+      Script: {instanceID: 1696}
+    - Class: 114
+      Script: {instanceID: 1998}
+    - Class: 114
+      Script: {instanceID: 2682}
+    - Class: 114
+      Script: {instanceID: 2846}
+    - Class: 114
+      Script: {instanceID: 3066}
+    - Class: 114
+      Script: {instanceID: 3316}
+    - Class: 114
+      Script: {instanceID: 3326}
+    - Class: 114
+      Script: {instanceID: 3438}
+    - Class: 114
+      Script: {instanceID: 3658}
+    - Class: 114
+      Script: {instanceID: 3820}
+    - Class: 114
+      Script: {instanceID: 3860}
+    - Class: 114
+      Script: {instanceID: 4462}
+    - Class: 114
+      Script: {instanceID: 4658}
+    - Class: 114
+      Script: {instanceID: 5500}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -217,35 +294,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1494}
     - Class: 114
-      Script: {instanceID: 1692}
+      Script: {instanceID: 1696}
     - Class: 114
-      Script: {instanceID: 2674}
+      Script: {instanceID: 2682}
     - Class: 114
-      Script: {instanceID: 2838}
+      Script: {instanceID: 2846}
     - Class: 114
-      Script: {instanceID: 3058}
+      Script: {instanceID: 3066}
     - Class: 114
-      Script: {instanceID: 3062}
+      Script: {instanceID: 3070}
     - Class: 114
-      Script: {instanceID: 3182}
+      Script: {instanceID: 3190}
     - Class: 114
-      Script: {instanceID: 3308}
+      Script: {instanceID: 3316}
     - Class: 114
-      Script: {instanceID: 3318}
+      Script: {instanceID: 3326}
     - Class: 114
-      Script: {instanceID: 3430}
+      Script: {instanceID: 3438}
     - Class: 114
-      Script: {instanceID: 3648}
+      Script: {instanceID: 3588}
     - Class: 114
-      Script: {instanceID: 3810}
+      Script: {instanceID: 3658}
     - Class: 114
-      Script: {instanceID: 4450}
+      Script: {instanceID: 3820}
     - Class: 114
-      Script: {instanceID: 4646}
+      Script: {instanceID: 4462}
     - Class: 114
-      Script: {instanceID: 5204}
+      Script: {instanceID: 4658}
     - Class: 114
-      Script: {instanceID: 5486}
+      Script: {instanceID: 5218}
+    - Class: 114
+      Script: {instanceID: 5500}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -281,6 +360,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AnimationPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: d2084c2af1048b84119db368432c42df
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: main_g
   - hash:
       serializedVersion: 2
       Hash: 77aaaaa51f7a8d8ff333a879741e47d2
@@ -377,6 +462,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: SimpleScript
+  - hash:
+      serializedVersion: 2
+      Hash: 94b0abdf7f722322989c49e4eacbde9c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: gChatManager
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -481,7 +572,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 5fc0dee1a41857832e1c1afb4b7f20aa
+      Hash: c3dcbf1075033d582a610fa04b310477
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Look_Around_Script
@@ -511,7 +602,7 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 7054662f525dcfec52cba095c5c20c44
+      Hash: 4bef910f3fa3cba3444461ac828b9bd0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ChatManager
@@ -625,6 +716,12 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
+      Hash: d2084c2af1048b84119db368432c42df
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: rc_3_2
+  - hash:
+      serializedVersion: 2
       Hash: bd3f0ca738703903e759f77536ed74fd
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
@@ -659,6 +756,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: PlayerQuitHandler
+  - hash:
+      serializedVersion: 2
+      Hash: d2084c2af1048b84119db368432c42df
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: g_1_2
   - hash:
       serializedVersion: 2
       Hash: 2c0a467ee7950c941c2dd8ef6b974a7e
@@ -1030,4 +1133,5 @@ ScriptsOnlyBuild:
   - Assets/01.Scenes/GaEun/Main_Scene.unity
   - Assets/01.Scenes/YooJung/rChatting.unity
   - Assets/01.Scenes/GaEun/Look_Around_Scene.unity
+  - Assets/01.Scenes/YooJung/gChatting.unity
   playerPath: /Users/gan_nii/Desktop/S_LOGOUT/Builds

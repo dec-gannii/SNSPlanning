@@ -50,6 +50,7 @@ public class Look_Around_Script : MonoBehaviour
 
         if (TotalGameManager.instance.Is_PopUp_OK_Button_Clicked() == true)
         {
+            Sound_Manager.instance.GoodEnding_BGM_Play();
             // TotalGameManager의 isPopupOKButtonClicked 메소드에서 리턴된 팝업 클릭 여부가 참이면
             // index를 0으로 설정하고, 현재 카드뉴스를 초기엔딩 카드뉴스의 0번째 이미지로 설정
             index = 0;
@@ -58,12 +59,10 @@ public class Look_Around_Script : MonoBehaviour
 
             // 랜덤채팅에서 초기 엔딩으로 가는 경우
             show_Random_Chatting_Middle_Ending_Card_News_Panel.SetActive(true);
-
-            // TotalGameManager의 setPopupClicked 메소드 사용해서 TotalGameManger의 popup_Clicked 변수 다시 false로 변경
-            TotalGameManager.instance.Set_Popup_Clicked(false);
         }
         else if (TotalGameManager.instance.Is_Ended_Button_Clicked() == true)
         {
+            Sound_Manager.instance.BadEnding_BGM_Play();
             // TotalGameManager의 isPopupOKButtonClicked 메소드에서 리턴된 팝업 클릭 여부가 참이면
             // index를 0으로 설정하고, 현재 카드뉴스를 초기엔딩 카드뉴스의 0번째 이미지로 설정
             index = 0;
@@ -72,9 +71,6 @@ public class Look_Around_Script : MonoBehaviour
 
             // 랜덤채팅에서 최종 엔딩으로 가는 경우
             show_Random_Chatting_Final_Ending_Card_News_Panel.SetActive(true);
-
-            // TotalGameManager의 setIsEnded 메소드 사용해서 TotalGameManger의 isEnded 변수 다시 false로 변경
-            TotalGameManager.instance.Set_Is_Ended(false);
         }
     }
     // Change Panel From Look Around To Help Detail
@@ -180,15 +176,22 @@ public class Look_Around_Script : MonoBehaviour
     // 활성화 상태에 문제가 될만한 Panel들을 모두 비활성화하고, Main 화면을 활성화한다.
     public void Go_Main()
     {
+        if (TotalGameManager.instance.Is_Ended_Button_Clicked().Equals(true))
+        {
+            Sound_Manager.instance.BadEnding_BGM_Stop();
+            Sound_Manager.instance.Title_BGM_Play();
+        }
+        else if (TotalGameManager.instance.Is_PopUp_OK_Button_Clicked().Equals(true))
+        {
+            Sound_Manager.instance.GoodEnding_BGM_Stop();
+            Sound_Manager.instance.Title_BGM_Play();
+        }
+
+        TotalGameManager.instance.Set_Popup_Clicked(false);
+        TotalGameManager.instance.Set_Is_Ended(false);
+
         TotalGameManager.instance.Set_Go_Main(true);
         SceneManager.LoadScene("Main_Scene");
-        //look_Around_Panel.SetActive(false);
-        //show_Random_Chatting_Middle_Ending_Card_News_Panel.SetActive(false);
-        //show_Random_Chatting_Final_Ending_Card_News_Panel.SetActive(false);
-        //show_Game_Final_Ending_Card_News_Panel.SetActive(false);
-        //show_Game_Middle_Ending_Card_News_Panel.SetActive(false);
-
-        //main_Panel.SetActive(true);
     }
 
     public void Go_Look_Around()

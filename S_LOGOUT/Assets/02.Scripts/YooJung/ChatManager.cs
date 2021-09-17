@@ -22,21 +22,26 @@ public class ChatManager : MonoBehaviour
 
     public bool isSubScript1;
     public bool isLoadSubScript1;
+    public bool isSubScript2;
+    public bool isLoadSubScript2;
     public bool isPhotoSend;
 
     public rc_2_2 script_Object2;
     public int now_Script_Index2;
     public int now_Sheet_Index2;
 
+    public rc_3_2 script_Object3;
+    public int now_Script_Index3;
+    public int now_Sheet_Index3;
+
     public GameObject explain_Panel;
     public GameObject popup_Panel;
     public GameObject answer2_Panel;
-    public GameObject answer3_Panel;
 
     public string[] Answers;
 
-    public Button Btn2_1, Btn2_2, Btn3_1, Btn3_2, Btn3_3;
-    public Text b2_1, b2_2, b3_1, b3_2, b3_3;
+    public Button Btn2_1, Btn2_2;
+    public Text b2_1, b2_2;
     public string text;
 
     Sprite[] message_Sprites;
@@ -49,6 +54,8 @@ public class ChatManager : MonoBehaviour
         isGameStart = true;
         isSubScript1 = false;
         isLoadSubScript1 = false;
+        isSubScript2 = false;
+        isLoadSubScript2 = false;
         isPhotoSend = false;
     }
 
@@ -72,6 +79,16 @@ public class ChatManager : MonoBehaviour
         isClicked = false;
     }
 
+    public void ScriptLoad3(int index)
+    {
+        Chat(script_Object3.sheets[now_Sheet_Index3].list[now_Script_Index3].MyTurn,
+            script_Object3.sheets[now_Sheet_Index3].list[now_Script_Index3].Script,
+            script_Object3.sheets[now_Sheet_Index3].list[now_Script_Index3].Who, null);
+
+        now_Script_Index3++;
+        isClicked = false;
+    }
+
     // Update is called once per frame
     public void Update()
     {
@@ -85,9 +102,16 @@ public class ChatManager : MonoBehaviour
                 {
                     ScriptLoad2(now_Script_Index2);
                 }
+
+                else if (isSubScript2.Equals(true))
+                {
+                    ScriptLoad3(now_Script_Index3);
+                }
+
                 else
                 {
-                    ScriptLoad(now_Script_Index) ;
+                    ScriptLoad(now_Script_Index);
+
                 }
             }
 
@@ -144,7 +168,7 @@ public class ChatManager : MonoBehaviour
                 Chat(false, text, "상대방", null);
             }
 
-            else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 56)
+            else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 56 && isLoadSubScript2.Equals(false))
             {
                 answer2_Panel.SetActive(true);
                 isGameStart = false;
@@ -175,6 +199,23 @@ public class ChatManager : MonoBehaviour
                     isClicked = false;
                     isSubScript1 = false;
                 } else
+                {
+                    isPhotoSend = true;
+                }
+            }
+
+            if (now_Script_Index3.Equals(4) && isSubScript2.Equals(true))
+            {
+
+                if (isPhotoSend.Equals(true))
+                {
+                    Chat(true, text, "나", null, message_Sprites[1]);
+                    now_Script_Index++;
+                    isClicked = false;
+                    isPhotoSend = false;
+                    isSubScript2 = false;
+                }
+                else
                 {
                     isPhotoSend = true;
                 }
@@ -342,12 +383,14 @@ public class ChatManager : MonoBehaviour
 
     public void Rc_End()
     {
+        Sound_Manager.instance.PlaySFX(1);
         TotalGameManager.instance.Set_Popup_Clicked(true);
         SceneManager.LoadScene("Look_Around_Scene");
     }
 
     public void Rc_Final_End()
     {
+        Sound_Manager.instance.PlaySFX(0);
         TotalGameManager.instance.Set_Is_Ended(true);
         SceneManager.LoadScene("Look_Around_Scene");
     }
@@ -401,13 +444,12 @@ public class ChatManager : MonoBehaviour
 
     public void Answer3_2()
     {
-        text = "ㄴㄴㄴ 싫어요";
-        Chat(true, text, "나", null, null);
+        isSubScript2 = true;
+        isLoadSubScript2 = true;
+        ScriptLoad3(now_Script_Index3);
 
         answer2_Panel.SetActive(false);
         isGameStart = true;
-
-        Rc_End();
     }
 
 }
