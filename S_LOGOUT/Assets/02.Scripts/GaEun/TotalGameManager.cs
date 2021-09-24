@@ -11,9 +11,11 @@ public class TotalGameManager : MonoBehaviour
     public string nickname;
 
     // bool type으로 다른 scene의 panel 띄우기 관리
-    private bool popup_OK;
-    private bool isEnded;
-    private bool go_Main;
+
+    private bool popup_OK; // 팝업창 눌렀는지 나타내는 변수
+    private bool isEnded; // 최종 엔딩인지 확인하는 변수
+    private bool go_Main; // 처음으로 번튼 눌렀는지 확인하는 변수
+    private bool go_Look_Around; // 둘러보기 버튼 눌렀는지 확인하는 변수
 
     private void Awake()
     {
@@ -85,5 +87,17 @@ public class TotalGameManager : MonoBehaviour
     public void Set_Is_Ended(bool clicked)
     {
         isEnded = clicked;
+    }
+
+    // 변수 go_Look_Around의 상태를 받은 매개변수로 설정
+    public void Set_Go_Look_Around(bool clicked)
+    {
+        go_Look_Around = clicked;
+    }
+
+    // 둘러보기 버튼 클릭 됐는지 확인 
+    public bool Is_Go_Look_Around_Button_Clicked()
+    {
+        return go_Look_Around;
     }
 }

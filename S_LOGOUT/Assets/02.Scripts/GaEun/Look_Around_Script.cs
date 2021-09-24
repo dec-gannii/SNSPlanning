@@ -21,6 +21,12 @@ public class Look_Around_Script : MonoBehaviour
     public GameObject info_Detail_Panel;
     public GameObject report_Panel;
 
+    // 처음으로 버튼 텍스트 수정을 위해 받아온 Text들
+    public Text go_Main_Game_Middle;
+    public Text go_Main_Game_Final;
+    public Text go_Main_RC_Middle;
+    public Text go_Main_RC_Final;
+
     public Image game_Final_Cardnews_Image_View;
     public Image random_Chatting_Final_Cardnews_Image_View;
     public Image middle_Cardnews01_Image_View;
@@ -94,6 +100,8 @@ public class Look_Around_Script : MonoBehaviour
     public void From_Look_Around_To_Show_Card_News_Panel()
     {
         //index = 0;
+        // 둘러보기 화면에서 카드 뉴스 보기를 통해 들어간 거면 TotalGameManager의 go_Look_Around 변수 참으로 바꿔주
+        TotalGameManager.instance.Set_Go_Look_Around(true);
         look_Around_Panel.gameObject.SetActive(false);
         show_Card_News_Panel.SetActive(true);
     }
@@ -113,6 +121,13 @@ public class Look_Around_Script : MonoBehaviour
         // 카드 뉴스 보기 화면 뜨기 전 혹시 모르니 한 번 더 index 초기화
         index = 0;
 
+        if (TotalGameManager.instance.Is_Go_Look_Around_Button_Clicked().Equals(true)) 
+        {
+            // TotalGameManager의 둘러보기 버튼이 클릭되었는지 받아오는 함수가 반환하는 값이 참이면
+            // 각 엔딩에 해당하는 카드뉴스 패널 내에 있는 처음으로 버튼의 텍스트를 뒤로가기로 변경한다. 
+            go_Main_Game_Middle.GetComponent<Text>().text = "뒤로가기";
+        }
+
         show_Card_News_Panel.gameObject.SetActive(false);
         // Current_Cardnews라는 sprite 변수에 게임 초기 종료 엔딩의 카드뉴스의 가장 첫 번째 장으로 지정
         Current_Cardnews = middle_Ending01_Sprites[index];
@@ -127,6 +142,13 @@ public class Look_Around_Script : MonoBehaviour
     {
         // 카드 뉴스 보기 화면 뜨기 전 혹시 모르니 한 번 더 index 초기화
         index = 0;
+
+        if (TotalGameManager.instance.Is_Go_Look_Around_Button_Clicked().Equals(true))
+        {
+            // TotalGameManager의 둘러보기 버튼이 클릭되었는지 받아오는 함수가 반환하는 값이 참이면
+            // 각 엔딩에 해당하는 카드뉴스 패널 내에 있는 처음으로 버튼의 텍스트를 뒤로가기로 변경한다. 
+            go_Main_Game_Final.GetComponent<Text>().text = "뒤로가기";
+        }
 
         show_Card_News_Panel.gameObject.SetActive(false);
         // Current_Cardnews라는 sprite 변수에 게임 최종 엔딩의 카드뉴스의 가장 첫 번째 장으로 지정
@@ -143,6 +165,13 @@ public class Look_Around_Script : MonoBehaviour
         // 카드 뉴스 보기 화면 뜨기 전 혹시 모르니 한 번 더 index 초기화
         index = 0;
 
+        if (TotalGameManager.instance.Is_Go_Look_Around_Button_Clicked().Equals(true))
+        {
+            // TotalGameManager의 둘러보기 버튼이 클릭되었는지 받아오는 함수가 반환하는 값이 참이면
+            // 각 엔딩에 해당하는 카드뉴스 패널 내에 있는 처음으로 버튼의 텍스트를 뒤로가기로 변경한다. 
+            go_Main_RC_Middle.GetComponent<Text>().text = "뒤로가기";
+        }
+
         show_Card_News_Panel.gameObject.SetActive(false);
         // Current_Cardnews라는 sprite 변수에 랜덤채팅 초기 종료 엔딩의 카드뉴스의 가장 첫 번째 장으로 지정
         Current_Cardnews = middle_Ending02_Sprites[index];
@@ -157,6 +186,13 @@ public class Look_Around_Script : MonoBehaviour
     {
         // 카드 뉴스 보기 화면 뜨기 전 혹시 모르니 한 번 더 index 초기화
         index = 0;
+
+        if (TotalGameManager.instance.Is_Go_Look_Around_Button_Clicked().Equals(true))
+        {
+            // TotalGameManager의 둘러보기 버튼이 클릭되었는지 받아오는 함수가 반환하는 값이 참이면
+            // 각 엔딩에 해당하는 카드뉴스 패널 내에 있는 처음으로 버튼의 텍스트를 뒤로가기로 변경한다. 
+            go_Main_RC_Final.GetComponent<Text>().text = "뒤로가기";
+        }
 
         show_Card_News_Panel.gameObject.SetActive(false);
         // Current_Cardnews라는 sprite 변수에 랜덤채팅 최종 엔딩의 카드뉴스의 가장 첫 번째 장으로 지정
@@ -189,9 +225,17 @@ public class Look_Around_Script : MonoBehaviour
 
         TotalGameManager.instance.Set_Popup_Clicked(false);
         TotalGameManager.instance.Set_Is_Ended(false);
-
         TotalGameManager.instance.Set_Go_Main(true);
-        SceneManager.LoadScene("Main_Scene");
+
+        if (TotalGameManager.instance.Is_Go_Main_Button_Clicked().Equals(true) && TotalGameManager.instance.Is_Go_Look_Around_Button_Clicked().Equals(false))
+        { // 처음으로 돌아가기 버튼이 눌렸는데 둘러보기 버튼은 안눌렸으면 Main 화면으로 넘어가기
+            SceneManager.LoadScene("Main_Scene");
+        } else if (TotalGameManager.instance.Is_Go_Main_Button_Clicked().Equals(true) && TotalGameManager.instance.Is_Go_Look_Around_Button_Clicked().Equals(true))
+        {
+            // 처음으로 돌아가기 버튼도 눌리고 둘러보기 버튼도 눌렸다면 둘러보기 화면으로 넘어가기
+            TotalGameManager.instance.Set_Go_Look_Around(false);
+            SceneManager.LoadScene("Look_Around_Scene");
+        }
     }
 
     public void Go_Look_Around()

@@ -94,14 +94,17 @@ public class gChatManager : MonoBehaviour
                 }
             }
 
-            if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 24)
+            Debug.Log("script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index : " + script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index);
+
+            if (now_Script_Index.Equals(21))
             {
-                Chat(false, text, "상대방", null, message_Sprites[1]);
+                //Chat(false, text, "상대방", null, message_Sprites[1]);
+                ImageChat(false, "GaEun/Message_Images/test_Image", "상대방", null);
             }
 
-            else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 46)
+            else if (now_Script_Index.Equals(45))
             {
-                Chat(false, text, "상대방", null, message_Sprites[1]);
+                ImageChat(false, "GaEun/Message_Images/test_Image", "상대방", null);
             }
 
             else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 79 && isLoadSubScript1.Equals(false))
@@ -134,9 +137,9 @@ public class gChatManager : MonoBehaviour
 
             }
 
-            else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 127)
+            else if (now_Script_Index.Equals(126))
             {
-                Chat(false, text, "상대방", null, message_Sprites[1]);
+                ImageChat(false, "GaEun/Message_Images/test_Image", "상대방", null);
             }
             
             else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 136)
@@ -163,7 +166,7 @@ public class gChatManager : MonoBehaviour
 
             else if (now_Script_Index2.Equals(34) && isSubScript1.Equals(true))
             {
-                Chat(false, text, "상대방", null, message_Sprites[1]);
+                ImageChat(false, "GaEun/Message_Images/test_Image", "상대방", null);
             }
 
             else if (now_Script_Index2.Equals(40) && isSubScript1.Equals(true))
@@ -172,6 +175,160 @@ public class gChatManager : MonoBehaviour
                 Invoke("Rc_Final_End", 2f);
             }
         }
+    }
+
+    public void ImageChat(bool isSend, string text, string user, Texture2D picture)
+    {
+        bool isBottom = scrollBar.value <= 0.00001f;     //  스크롤바의 현재 값. 0과 1 사이로 표현됩니다.
+
+        // 다시 추가 시킨다 isSend에 따라서 노란색인지 하얀색인지 알기 위해서
+        AreaScript area = Instantiate(isSend ? blueAreaImage : redAreaImage).GetComponent<AreaScript>();
+        area.transform.SetParent(contentRect.transform, false);  // 뭉개지지 않게 잘 되게 하기 위해서 false
+        area.boxRect.sizeDelta = new Vector2(600, area.boxRect.sizeDelta.y);        // width and height 가로 600 최대, y는 기본 크기로
+        area.messageImage.GetComponent<Image>().sprite = Resources.Load<Sprite>(text);
+
+        Fit(area.boxRect);  // Text에 사이즈를 맞춰주기 위해서
+
+        // 글자 크기만큼 노란 박스 크기를 설정해주기 위해서
+        // 두줄 이상이면 크기를 줄여가면서, 한 줄이 아래로 내려가면 바로 전 크기를 대입
+        float X = area.messageImage.sprite.rect.size.x;   // 기본보다 약간 크게 해준다 42정도를 더해서
+        float Y = area.messageImage.sprite.rect.size.y;         // 높이는 기본 크기 그대로
+
+        Debug.Log("Sprite size X : " + X);
+        Debug.Log("Sprite size X : " + Y);
+        /*
+         if (Y > 49)        // 2줄 이상인 경우에는
+         {
+             for (int i = 0; i < 200; i++)  // 200번 정도 돌면서
+             {
+                 // 2씩 줄여가면서 Text 크기 까지 맞춰준다
+                 area.boxRect.sizeDelta = new Vector2(X - i * 2, area.boxRect.sizeDelta.y);
+                 Fit(area.boxRect);
+
+                 // 딱 맞게 줄어들면~
+                 if (Y != area.messageImage.sprite.rect.size.y)
+                 {
+                     area.boxRect.sizeDelta = new Vector2(X - (i * 2) + 2, Y);   // 기존에 뺏던 거에서 2만큼 더해서 사이즈 조절을 해주고~ 빠져나간다
+                     break;
+                 }
+
+             }
+         }
+         else // 그렇지 않으면~ (1줄이면)
+         {
+             area.boxRect.sizeDelta = new Vector2(X, Y);     // 기존에 사이즈에 넣어준다
+         }
+         */
+        area.boxRect.sizeDelta = new Vector2(X, Y);     // 기존에 사이즈에 넣어준다
+
+        // 현재 것에 분까지 나오는 날짜와 유저이름 대입
+        DateTime t = DateTime.Now;      // 현재 시간 갖고오기
+
+        area.time = t.ToString("yyyy-MM-dd-HH-mm");     //
+        area.user = user;   // 나, 타인
+
+        // 현재 것은 항상 새로운 시간 대입
+        int hour = t.Hour;      // 24시간으로 처리되므로..
+
+        // 오전 오후 구분을 위해
+        if (t.Hour == 0)
+        {
+            hour = 12;
+        }
+        else if (t.Hour > 12)
+        {
+            hour -= 12;
+        }
+
+        area.timeText.text = (t.Hour > 12 ? "오후" : "오전") + hour + ":" + t.Minute.ToString("D2");
+
+
+
+
+        // 이전 것과 같으면 이전 시간, 꼬리 없에기  lastArea는 가장 나중에 보낸 것인데.. 그것이 비어있지 않고, 그것의 시간이 현재와 같고, 유저의 이름과 같으면
+        bool isSame = lastArea != null && lastArea.time == area.time && lastArea.user == area.user;
+
+        if (isSame)
+        {
+            lastArea.timeText.text = "";    // 이전것을 지운다
+        }
+
+        area.tail.SetActive(!isSame);
+
+
+        // 타인이 이전 것과 같으면, 이미지, 이름 없에기
+        /*
+         * if (!isSend)
+        {
+            area.userImage.gameObject.SetActive(!isSame);
+            area.userText.gameObject.SetActive(!isSame);
+            area.userText.text = area.user;     // 위에서 지웠기 때문에.. 아래에서는 지원해준다
+            // 이미지를 추가하기 위해서
+            if (picture != null)
+            {
+                area.userImage.sprite = Sprite.Create(picture, new Rect(0, 0, picture.width, picture.height), new Vector2(0.5f, 0.5f));
+            }
+        }
+        */
+
+
+        // 이전 것과 날짜가 다르면 날짜영역 보이기
+        // sub 0~10은  yyyy-mm-dd 까지이다 이전것과 새로운 것이 다르다면~!(날짜가 바뀌었다면)
+        if (lastArea != null)
+            Debug.Log(lastArea.time.Substring(0, 10));
+
+        Debug.Log(area.time.Substring(0, 10));
+
+        if (lastArea != null && lastArea.time.Substring(0, 10) != area.time.Substring(0, 10))
+        {
+
+            Transform curDateArea = Instantiate(dateArea).transform;
+            curDateArea.SetParent(contentRect.transform, false);
+
+            curDateArea.SetSiblingIndex(curDateArea.GetSiblingIndex() - 1);     // Index에서 1을 빼줘야지만, 날짜가 먼저 나오고 나서 Yellow인지 White인지가 나오게 된다.
+
+            string week = "";
+            switch (t.DayOfWeek)
+            {
+                case DayOfWeek.Sunday:
+                    week = "일";
+                    break;
+                case DayOfWeek.Monday:
+                    week = "월";
+                    break;
+                case DayOfWeek.Tuesday:
+                    week = "화";
+                    break;
+                case DayOfWeek.Wednesday:
+                    week = "수";
+                    break;
+                case DayOfWeek.Thursday:
+                    week = "목";
+                    break;
+                case DayOfWeek.Friday:
+                    week = "금";
+                    break;
+                case DayOfWeek.Saturday:
+                    week = "토";
+                    break;
+            }
+            curDateArea.GetComponent<AreaScript>().dateText.text = t.Year + "년 " + t.Month + "월 " + t.Day + "일 " + week + "요일";
+        }
+
+
+        // Fie 맞추는 순서가 중요하다.
+        // 바로 상위 상위 상위로 업데이트 해 주어야 한다.
+        Fit(area.boxRect);
+        Fit(area.areaRect);
+        Fit(contentRect);
+        lastArea = area;
+
+
+        // 스크롤바가 위로 올라간 상태에서 메시지를 받으면 맨 아래로 내리지 않음
+        if (!isSend && !isBottom)
+            return;
+
+        Invoke("ScrollDelay", 0.03f);   // 0.03초 이후에 해 준다
     }
 
     public void Chat(bool isSend, string text, string user, Texture2D picture, Sprite messagePicture = null)
@@ -367,8 +524,8 @@ public class gChatManager : MonoBehaviour
     public void Answer2_1()
     {
         //최종엔딩
-        Chat(true, text, "나", null, message_Sprites[1]);
-        Invoke("Rc_Final_End", 2f);
+        ImageChat(true, "GaEun/Message_Images/test_Image_02", "나", null);
+        Invoke("Rc_Final_Endㅅ", 2f);
     }
 
     public void Answer2_2()
