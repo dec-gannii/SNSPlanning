@@ -16,6 +16,8 @@ public class Main_Script : MonoBehaviour
     public GameObject random_Chatting_Explain_Player_Situation_Panel;
     public GameObject game_Explain_Player_Situation_Panel;
 
+    public GameObject credit_Panel;
+
     // For manage Nickname String
     public TMP_InputField nickNameField;
     public Text nickname_Text;
@@ -148,6 +150,7 @@ public class Main_Script : MonoBehaviour
     public void From_Explain_Player_Situation_To_Random_Chatting_Start()
     {
         Sound_Manager.instance.Title_BGM_Stop();
+        TotalGameManager.instance.Set_Is_It_Game(false);
         random_Chatting_Explain_Player_Situation_Panel.SetActive(false);
         SceneManager.LoadScene("rChatting");
     }
@@ -155,8 +158,18 @@ public class Main_Script : MonoBehaviour
     public void From_Explain_Player_Situation_To_Game_Chatting_Start()
     {
         Sound_Manager.instance.Title_BGM_Stop();
+        TotalGameManager.instance.Set_Is_It_Game(true);
         random_Chatting_Explain_Player_Situation_Panel.SetActive(false);
         SceneManager.LoadScene("gChatting");
     }
 
+    public void From_Main_To_Credit_Panel_On()
+    {
+        credit_Panel.SetActive(true);
+    }
+
+    public void From_Main_To_Credit_Panel_Off()
+    {
+        credit_Panel.SetActive(false);
+    }
 }

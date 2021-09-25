@@ -1407,8 +1407,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ChatManager, Assembly-CSharp
+      - m_Target: {fileID: 346411741}
+        m_TargetAssemblyTypeName: gChatManager, Assembly-CSharp
         m_MethodName: Popup_Ok
         m_Mode: 1
         m_Arguments:
@@ -1468,6 +1468,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1483,6 +1484,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d1ace585efa49368766f97f11e5252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -2324,8 +2337,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ChatManager, Assembly-CSharp
+      - m_Target: {fileID: 346411741}
+        m_TargetAssemblyTypeName: gChatManager, Assembly-CSharp
         m_MethodName: Popup_Close
         m_Mode: 1
         m_Arguments:
@@ -3096,8 +3109,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ChatManager, Assembly-CSharp
+      - m_Target: {fileID: 346411741}
+        m_TargetAssemblyTypeName: gChatManager, Assembly-CSharp
         m_MethodName: Popup_Open
         m_Mode: 1
         m_Arguments:

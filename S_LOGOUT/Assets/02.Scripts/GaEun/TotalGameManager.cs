@@ -16,6 +16,7 @@ public class TotalGameManager : MonoBehaviour
     private bool isEnded; // 최종 엔딩인지 확인하는 변수
     private bool go_Main; // 처음으로 번튼 눌렀는지 확인하는 변수
     private bool go_Look_Around; // 둘러보기 버튼 눌렀는지 확인하는 변수
+    private bool is_it_game;
 
     private void Awake()
     {
@@ -99,5 +100,15 @@ public class TotalGameManager : MonoBehaviour
     public bool Is_Go_Look_Around_Button_Clicked()
     {
         return go_Look_Around;
+    }
+
+    public void Set_Is_It_Game(bool clicked)
+    {
+        is_it_game = clicked;
+    }
+
+    public bool Is_It_Game()
+    {
+        return is_it_game;
     }
 }

@@ -292,7 +292,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 42
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -450,7 +450,7 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 35
     m_Top: 0
-    m_Bottom: 0
+    m_Bottom: 35
   m_ChildAlignment: 2
   m_Spacing: 0
   m_ChildForceExpandWidth: 0

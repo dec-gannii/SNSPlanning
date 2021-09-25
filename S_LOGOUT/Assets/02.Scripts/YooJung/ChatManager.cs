@@ -49,7 +49,8 @@ public class ChatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        message_Sprites = Resources.LoadAll<Sprite>("GaEun/Message_Images");
+        TotalGameManager.instance.Set_Go_Look_Around(false);
+        message_Sprites = Resources.LoadAll<Sprite>("YooJung/ChatImgs");
         isClicked = false;
         isGameStart = true;
         isSubScript1 = false;
@@ -95,6 +96,7 @@ public class ChatManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isClicked && isGameStart.Equals(true))
         {
             isClicked = true;
+            Sound_Manager.instance.Message_Sound();
 
             if (isPhotoSend.Equals(false))
             {
@@ -133,7 +135,8 @@ public class ChatManager : MonoBehaviour
                 if (isPhotoSend.Equals(true))
                 {
                     now_Script_Index++;
-                    Chat(false, text, "상대방", null, message_Sprites[1]);
+                    Chat(false, text, "상대방", null, message_Sprites[6]);
+                    Sound_Manager.instance.Message_Sound();
 
                     isPhotoSend = false;
                     isClicked = false;
@@ -141,6 +144,7 @@ public class ChatManager : MonoBehaviour
                 {
                     text = "안녕 " + TotalGameManager.instance.nickname + " ㅋㅋ";
                     Chat(false, text, "상대방", null);
+                    Sound_Manager.instance.Message_Sound();
 
                     isPhotoSend = true;
                 }
@@ -164,8 +168,9 @@ public class ChatManager : MonoBehaviour
 
             else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 47)
             {
-                text = TotalGameManager.instance.nickname + "아 너 나 못 믿는 거잖아";
+                text = TotalGameManager.instance.nickname + " 너 나 못 믿는 거잖아";
                 Chat(false, text, "상대방", null);
+                Sound_Manager.instance.Message_Sound();
             }
 
             else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 56 && isLoadSubScript2.Equals(false))
@@ -186,14 +191,15 @@ public class ChatManager : MonoBehaviour
             else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 63)
             {
                 isGameStart = false;
-                Invoke("Rc_Final_End", 2f);
+                Invoke("Rc_Final_End", 1f);
             }
 
             if (now_Script_Index2.Equals(11) && isSubScript1.Equals(true))
             {
                 if (isPhotoSend.Equals(true))
                 {
-                    Chat(true, text, "나", null, message_Sprites[1]);
+                    Chat(true, text, "나", null, message_Sprites[8]);
+                    Sound_Manager.instance.Message_Sound();
                     now_Script_Index++;
                     isPhotoSend = false;
                     isClicked = false;
@@ -209,7 +215,8 @@ public class ChatManager : MonoBehaviour
 
                 if (isPhotoSend.Equals(true))
                 {
-                    Chat(true, text, "나", null, message_Sprites[1]);
+                    Chat(true, text, "나", null, message_Sprites[7]);
+                    Sound_Manager.instance.Message_Sound();
                     now_Script_Index++;
                     isClicked = false;
                     isPhotoSend = false;
@@ -399,6 +406,7 @@ public class ChatManager : MonoBehaviour
     {
         text = "넹 저야 땡큐죠 ㅋㅋㅋㅋ";
         Chat(true, text, "나", null, null);
+        Sound_Manager.instance.Message_Sound();
 
         answer2_Panel.SetActive(false);
         isGameStart = true;
@@ -413,7 +421,8 @@ public class ChatManager : MonoBehaviour
     {   
         // 상대방이 이미지 포함해서 보내면
         //Chat(true, text, "나", null, message_Sprites[1]);
-        Chat(true, text, "나", null, message_Sprites[0]);
+        Chat(true, text, "나", null, message_Sprites[8]);
+        Sound_Manager.instance.Message_Sound();
 
         answer2_Panel.SetActive(false);
         isGameStart = true;
@@ -425,6 +434,7 @@ public class ChatManager : MonoBehaviour
         //isClicked = true;
         isSubScript1 = true;
         ScriptLoad2(now_Script_Index2);
+        Sound_Manager.instance.Message_Sound();
         isLoadSubScript1 = true;
 
         answer2_Panel.SetActive(false);
@@ -435,7 +445,8 @@ public class ChatManager : MonoBehaviour
     public void Answer3_1()
     {
         ScriptLoad(now_Script_Index);
-        Chat(true, text, "나", null, message_Sprites[0]);
+        Chat(true, text, "나", null, message_Sprites[7]);
+        Sound_Manager.instance.Message_Sound();
 
         answer2_Panel.SetActive(false);
         isGameStart = true;
@@ -445,8 +456,9 @@ public class ChatManager : MonoBehaviour
     public void Answer3_2()
     {
         isSubScript2 = true;
-        isLoadSubScript2 = true;
         ScriptLoad3(now_Script_Index3);
+        Sound_Manager.instance.Message_Sound();
+        isLoadSubScript2 = true;
 
         answer2_Panel.SetActive(false);
         isGameStart = true;

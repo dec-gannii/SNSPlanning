@@ -45,7 +45,8 @@ public class gChatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        message_Sprites = Resources.LoadAll<Sprite>("GaEun/Message_Images");
+        TotalGameManager.instance.Set_Go_Look_Around(false);
+        message_Sprites = Resources.LoadAll<Sprite>("YooJung/ChatImgs");
         isClicked = false;
         isGameStart = true;
         isSubScript1 = false;
@@ -58,7 +59,6 @@ public class gChatManager : MonoBehaviour
         Chat(script_Object.sheets[now_Sheet_Index].list[now_Script_Index].MyTurn,
             script_Object.sheets[now_Sheet_Index].list[now_Script_Index].Script,
             script_Object.sheets[now_Sheet_Index].list[now_Script_Index].Who, null);
-
         now_Script_Index++;
         isClicked = false;
     }
@@ -76,10 +76,10 @@ public class gChatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetMouseButtonDown(0) && !isClicked && isGameStart.Equals(true))
         {
             isClicked = true;
+            Sound_Manager.instance.Message_Sound();
 
             if (isPhotoSend.Equals(false))
             {
@@ -92,22 +92,81 @@ public class gChatManager : MonoBehaviour
                 {
                     ScriptLoad(now_Script_Index);
                 }
+
+                if (now_Script_Index.Equals(4))
+                {
+                    isPhotoSend = true;
+                    return;
+                }
+                else if (now_Script_Index.Equals(11))
+                {
+                    isPhotoSend = true;
+                    return;
+                }
+                else if (now_Script_Index.Equals(29))
+                {
+                    isPhotoSend = true;
+                    return;
+                }
+                else if (now_Script_Index.Equals(40))
+                {
+                    isPhotoSend = true;
+                    return;
+                }
+                else if (now_Script_Index.Equals(62))
+                {
+                    isPhotoSend = true;
+                    return;
+                }
+                else if (now_Script_Index.Equals(97))
+                {
+                    isPhotoSend = true;
+                    return;
+                }
+                else if (now_Script_Index2.Equals(23) && isSubScript1.Equals(true))
+                {
+                    isPhotoSend = true;
+                    return;
+                }
             }
 
-            Debug.Log("script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index : " + script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index);
-
-            if (now_Script_Index.Equals(21))
+            //Debug.Log("script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index : " + script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index);
+            if (now_Script_Index.Equals(4))
             {
-                //Chat(false, text, "상대방", null, message_Sprites[1]);
-                ImageChat(false, "GaEun/Message_Images/test_Image", "상대방", null);
+                ImageChat(false, "YooJung/ChatImgs/g_myprofile", "타인", null);
+                isPhotoSend = false;
+                // now_Script_Index++;
+                isClicked = false;
             }
 
-            else if (now_Script_Index.Equals(45))
+            else if (now_Script_Index.Equals(11))
             {
-                ImageChat(false, "GaEun/Message_Images/test_Image", "상대방", null);
+                ImageChat(false, "YooJung/ChatImgs/g_eyes", "타인", null);
+                isPhotoSend = false;
+                // now_Script_Index++;
+                isClicked = false;
+                Sound_Manager.instance.Message_Sound();
             }
 
-            else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 79 && isLoadSubScript1.Equals(false))
+            else if (now_Script_Index.Equals(29))
+            {
+                ImageChat(false, "YooJung/ChatImgs/g_body", "타인", null);
+                isPhotoSend = false;
+                //now_Script_Index++;
+                isClicked = false;
+                Sound_Manager.instance.Message_Sound();
+            }
+
+            else if (now_Script_Index.Equals(40))
+            {
+                ImageChat(false, "YooJung/ChatImgs/g_face", "타인", null);
+                isPhotoSend = false;
+                //now_Script_Index++;
+                isClicked = false;
+                Sound_Manager.instance.Message_Sound();
+            }
+
+            else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 56 && isLoadSubScript1.Equals(false))
             {
                 answer2_Panel.SetActive(true);
                 isGameStart = false;
@@ -115,12 +174,22 @@ public class gChatManager : MonoBehaviour
                 b2_1.GetComponent<Text>().text = Answers[0];
                 b2_2.GetComponent<Text>().text = Answers[1];
 
+                //개인정보 보낸다 안보낸다
                 Btn2_1.onClick.AddListener(Answer1_1);
                 Btn2_2.onClick.AddListener(Answer1_2);
 
             }
 
-            else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 125)
+            else if (now_Script_Index.Equals(62))
+            {
+                ImageChat(false, "YooJung/ChatImgs/g_insta", "타인", null);
+                isPhotoSend = false;
+                //now_Script_Index++;
+                isClicked = false;
+                Sound_Manager.instance.Message_Sound();
+            }
+
+            else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 97)
             {
                 answer2_Panel.SetActive(true);
                 isGameStart = false;
@@ -132,23 +201,28 @@ public class gChatManager : MonoBehaviour
                 Btn2_1.onClick.RemoveListener(Answer1_1);
                 Btn2_2.onClick.RemoveListener(Answer1_2);
 
+                //사진 보낸다 안보낸다
                 Btn2_1.onClick.AddListener(Answer2_1);
                 Btn2_2.onClick.AddListener(Answer2_2);
 
             }
 
-            else if (now_Script_Index.Equals(126))
+            else if (now_Script_Index.Equals(97))
             {
-                ImageChat(false, "GaEun/Message_Images/test_Image", "상대방", null);
-            }
-            
-            else if (script_Object.sheets[now_Sheet_Index].list[now_Script_Index].index == 136)
-            {
-                isGameStart = false;
-                Invoke("Rc_Final_End", 2f);
+                ImageChat(false, "YooJung/ChatImgs/g_mybody", "타인", null);
+                isPhotoSend = false;
+                //now_Script_Index++;
+                isClicked = false;
+                Sound_Manager.instance.Message_Sound();
             }
 
-            if (now_Script_Index2.Equals(32) && isSubScript1.Equals(true))
+            else if (now_Script_Index.Equals(103))
+            {
+                isGameStart = false;
+                Invoke("Game_Final_End", 2f);
+            }
+
+            if (now_Script_Index2.Equals(22) && isSubScript1.Equals(true))
             {
                 answer2_Panel.SetActive(true);
                 isGameStart = false;
@@ -160,19 +234,24 @@ public class gChatManager : MonoBehaviour
                 Btn2_1.onClick.RemoveListener(Answer1_1);
                 Btn2_2.onClick.RemoveListener(Answer1_2);
 
+                //설치한다 안한
                 Btn2_1.onClick.AddListener(Answer1_1_1);
                 Btn2_2.onClick.AddListener(Answer1_1_2);
             }
 
-            else if (now_Script_Index2.Equals(34) && isSubScript1.Equals(true))
+            else if (now_Script_Index2.Equals(23) && isSubScript1.Equals(true))
             {
-                ImageChat(false, "GaEun/Message_Images/test_Image", "상대방", null);
+                ImageChat(false, "YooJung/ChatImgs/g_mybody", "타인", null);
+                isPhotoSend = false;
+                //now_Script_Index2++;
+                isClicked = false;
+                Sound_Manager.instance.Message_Sound();
             }
 
-            else if (now_Script_Index2.Equals(40) && isSubScript1.Equals(true))
+            else if (now_Script_Index2.Equals(29) && isSubScript1.Equals(true))
             {
                 isGameStart = false;
-                Invoke("Rc_Final_End", 2f);
+                Invoke("Game_Final_End", 2f);
             }
         }
     }
@@ -194,8 +273,8 @@ public class gChatManager : MonoBehaviour
         float X = area.messageImage.sprite.rect.size.x;   // 기본보다 약간 크게 해준다 42정도를 더해서
         float Y = area.messageImage.sprite.rect.size.y;         // 높이는 기본 크기 그대로
 
-        Debug.Log("Sprite size X : " + X);
-        Debug.Log("Sprite size X : " + Y);
+        //Debug.Log("Sprite size X : " + X);
+        //Debug.Log("Sprite size X : " + Y);
         /*
          if (Y > 49)        // 2줄 이상인 경우에는
          {
@@ -257,8 +336,7 @@ public class gChatManager : MonoBehaviour
 
 
         // 타인이 이전 것과 같으면, 이미지, 이름 없에기
-        /*
-         * if (!isSend)
+        /*if (!isSend)
         {
             area.userImage.gameObject.SetActive(!isSame);
             area.userText.gameObject.SetActive(!isSame);
@@ -268,8 +346,7 @@ public class gChatManager : MonoBehaviour
             {
                 area.userImage.sprite = Sprite.Create(picture, new Rect(0, 0, picture.width, picture.height), new Vector2(0.5f, 0.5f));
             }
-        }
-        */
+        }*/
 
 
         // 이전 것과 날짜가 다르면 날짜영역 보이기
@@ -277,7 +354,7 @@ public class gChatManager : MonoBehaviour
         if (lastArea != null)
             Debug.Log(lastArea.time.Substring(0, 10));
 
-        Debug.Log(area.time.Substring(0, 10));
+        //Debug.Log(area.time.Substring(0, 10));
 
         if (lastArea != null && lastArea.time.Substring(0, 10) != area.time.Substring(0, 10))
         {
@@ -488,14 +565,14 @@ public class gChatManager : MonoBehaviour
         isGameStart = true;
     }
 
-    public void Rc_End()
+    public void Game_End()
     {
         Sound_Manager.instance.PlaySFX(1);
         TotalGameManager.instance.Set_Popup_Clicked(true);
         SceneManager.LoadScene("Look_Around_Scene");
     }
 
-    public void Rc_Final_End()
+    public void Game_Final_End()
     {
         Sound_Manager.instance.PlaySFX(0);
         TotalGameManager.instance.Set_Is_Ended(true);
@@ -506,6 +583,7 @@ public class gChatManager : MonoBehaviour
     {
         text = "2xxxxx-xxxxxxx 여기!";
         Chat(true, text, "나", null);
+        Sound_Manager.instance.Message_Sound();
 
         answer2_Panel.SetActive(false);
         isGameStart = true;
@@ -515,6 +593,7 @@ public class gChatManager : MonoBehaviour
     {
         isSubScript1 = true;
         ScriptLoad2(now_Script_Index2);
+        Sound_Manager.instance.Message_Sound();
         isLoadSubScript1 = true;
 
         answer2_Panel.SetActive(false);
@@ -524,18 +603,29 @@ public class gChatManager : MonoBehaviour
     public void Answer2_1()
     {
         //최종엔딩
-        ImageChat(true, "GaEun/Message_Images/test_Image_02", "나", null);
-        Invoke("Rc_Final_Endㅅ", 2f);
+        ImageChat(true, "YooJung/ChatImgs/rc_mybody", "나", null);
+        Sound_Manager.instance.Message_Sound();
+        Invoke("Game_Final_End", 1f);
+
+        answer2_Panel.SetActive(false);
+        //isGameStart = true;
     }
 
     public void Answer2_2()
     {
-        answer2_Panel.SetActive(false);
+        text = "안보낼거임 자라 그냥";
+        Chat(true, text, "나", null);
+        Sound_Manager.instance.Message_Sound();
+        answer2_Panel.SetActive(false);        
         isGameStart = true;
     }
 
     public void Answer1_1_1()
     {
+        text = "뭐야 아무것도 안뜨는데?";
+        Chat(true, text, "나", null);
+        Sound_Manager.instance.Message_Sound();
+
         answer2_Panel.SetActive(false);
         isGameStart = true;
     }
@@ -543,6 +633,7 @@ public class gChatManager : MonoBehaviour
     public void Answer1_1_2()
     {
         //초기엔딩
-        Invoke("Rc_Final_End", 2f);
+        answer2_Panel.SetActive(false);
+        Invoke("Game_End", 1f);
     }
 }

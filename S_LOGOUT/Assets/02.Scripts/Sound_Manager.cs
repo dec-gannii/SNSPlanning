@@ -8,7 +8,7 @@ public class Sound_Manager : MonoBehaviour
 
     public AudioSource[] soundEffects;
 
-    public AudioSource title_BGM, badEnding_BGM, goodEnding_BGM;
+    public AudioSource title_BGM, badEnding_BGM, goodEnding_BGM, message_Sound;
 
     private void Awake()
     {
@@ -59,5 +59,10 @@ public class Sound_Manager : MonoBehaviour
     public void GoodEnding_BGM_Stop()
     {
         goodEnding_BGM.Stop();
+    }
+
+    public void Message_Sound()
+    {
+        message_Sound.Play();
     }
 }
