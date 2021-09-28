@@ -15,7 +15,6 @@ public class Main_Script : MonoBehaviour
     public GameObject select_Interest_Panel;
     public GameObject random_Chatting_Explain_Player_Situation_Panel;
     public GameObject game_Explain_Player_Situation_Panel;
-
     public GameObject credit_Panel;
 
     // For manage Nickname String
@@ -163,6 +162,14 @@ public class Main_Script : MonoBehaviour
         SceneManager.LoadScene("gChatting");
     }
 
+    public void Delete_Nickname()
+    {
+        if (PlayerPrefs.HasKey("nickname"))
+        {
+            PlayerPrefs.DeleteAll();
+        }
+    }
+
     public void From_Main_To_Credit_Panel_On()
     {
         credit_Panel.SetActive(true);
@@ -172,4 +179,5 @@ public class Main_Script : MonoBehaviour
     {
         credit_Panel.SetActive(false);
     }
+
 }

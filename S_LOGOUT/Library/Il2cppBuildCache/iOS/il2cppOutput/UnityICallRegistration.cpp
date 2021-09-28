@@ -202,17 +202,9 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Camera_get_pixelRect_Injected();
 		Register_UnityEngine_Camera_get_pixelRect_Injected();
 
-		//System.Void UnityEngine.Camera::get_rect_Injected(UnityEngine.Rect&)
-		void Register_UnityEngine_Camera_get_rect_Injected();
-		Register_UnityEngine_Camera_get_rect_Injected();
-
 		//System.Void UnityEngine.Camera::set_orthographicSize(System.Single)
 		void Register_UnityEngine_Camera_set_orthographicSize();
 		Register_UnityEngine_Camera_set_orthographicSize();
-
-		//System.Void UnityEngine.Camera::set_rect_Injected(UnityEngine.Rect&)
-		void Register_UnityEngine_Camera_set_rect_Injected();
-		Register_UnityEngine_Camera_set_rect_Injected();
 
 		//UnityEngine.Camera UnityEngine.Camera::get_current()
 		void Register_UnityEngine_Camera_get_current();
@@ -751,14 +743,6 @@ void RegisterAllStrippedInternalCalls()
 		Register_UnityEngine_GameObject_get_transform();
 
 	//End Registrations for type : UnityEngine.GameObject
-
-	//Start Registrations for type : UnityEngine.GL
-
-		//System.Void UnityEngine.GL::GLClear_Injected(System.Boolean,System.Boolean,UnityEngine.Color&,System.Single)
-		void Register_UnityEngine_GL_GLClear_Injected();
-		Register_UnityEngine_GL_GLClear_Injected();
-
-	//End Registrations for type : UnityEngine.GL
 
 	//Start Registrations for type : UnityEngine.Gradient
 
@@ -1421,6 +1405,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.String UnityEngine.PlayerPrefs::GetString(System.String,System.String)
 		void Register_UnityEngine_PlayerPrefs_GetString();
 		Register_UnityEngine_PlayerPrefs_GetString();
+
+		//System.Void UnityEngine.PlayerPrefs::DeleteAll()
+		void Register_UnityEngine_PlayerPrefs_DeleteAll();
+		Register_UnityEngine_PlayerPrefs_DeleteAll();
 
 	//End Registrations for type : UnityEngine.PlayerPrefs
 

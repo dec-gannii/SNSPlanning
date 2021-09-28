@@ -49,7 +49,6 @@ public class ChatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TotalGameManager.instance.Set_Go_Look_Around(false);
         message_Sprites = Resources.LoadAll<Sprite>("YooJung/ChatImgs");
         isClicked = false;
         isGameStart = true;

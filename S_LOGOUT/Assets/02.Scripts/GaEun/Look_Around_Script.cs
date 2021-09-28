@@ -49,11 +49,8 @@ public class Look_Around_Script : MonoBehaviour
 
     Sprite[] Infographics;
 
-    public bool isLookAround;
-
     void Start()
     {
-        isLookAround = true;
         // 카드뉴스 이미지들 해당하는 이미지들별로 배열에 저장
         game_Sprites = Resources.LoadAll<Sprite>("GaEun/CardNews/Game_Ending");
         random_Chatting_Sprites = Resources.LoadAll<Sprite>("GaEun/CardNews/Random_Chatting_Ending");
@@ -90,8 +87,7 @@ public class Look_Around_Script : MonoBehaviour
                 // 랜덤채팅에서 최종 엔딩으로 가는 경우
                 show_Random_Chatting_Final_Ending_Card_News_Panel.SetActive(true);
             }
-        }
-        else if (TotalGameManager.instance.Is_It_Game().Equals(true))
+        } else if (TotalGameManager.instance.Is_It_Game().Equals(true))
         {
             if (TotalGameManager.instance.Is_PopUp_OK_Button_Clicked() == true)
             {
@@ -142,8 +138,7 @@ public class Look_Around_Script : MonoBehaviour
     public void From_Look_Around_To_Show_Card_News_Panel()
     {
         //index = 0;
-        // 둘러보기 화면에서 카드 뉴스 보기를 통해 들어간 거면 TotalGameManager의 go_Look_Around 변수 참으로 바꿔주기
-        isLookAround = false;
+        // 둘러보기 화면에서 카드 뉴스 보기를 통해 들어간 거면 TotalGameManager의 go_Look_Around 변수 참으로 바꿔주
         TotalGameManager.instance.Set_Go_Look_Around(true);
         look_Around_Panel.gameObject.SetActive(false);
         show_Card_News_Panel.SetActive(true);
@@ -161,12 +156,11 @@ public class Look_Around_Script : MonoBehaviour
     // Show Card News Panel에서 게임 section의 초기 종료 엔딩 보기 버튼 클릭 시 실행
     public void From_Show_Card_News_To_Show_Game_Middle_Ending_Card_News_Panel()
     {
-        isLookAround = true;
         // 카드 뉴스 보기 화면 뜨기 전 혹시 모르니 한 번 더 index 초기화
         index = 0;
         count_Text_Game_Middle.GetComponent<Text>().text = 1 + "/" + middle_Ending01_Sprites.Length;
 
-        if (TotalGameManager.instance.Is_Go_Look_Around_Button_Clicked().Equals(true))
+        if (TotalGameManager.instance.Is_Go_Look_Around_Button_Clicked().Equals(true)) 
         {
             // TotalGameManager의 둘러보기 버튼이 클릭되었는지 받아오는 함수가 반환하는 값이 참이면
             // 각 엔딩에 해당하는 카드뉴스 패널 내에 있는 처음으로 버튼의 텍스트를 뒤로가기로 변경한다. 
@@ -185,7 +179,6 @@ public class Look_Around_Script : MonoBehaviour
     // Show Card News Panel에서 게임 section의 최종 엔딩 보기 버튼 클릭 시 실행
     public void From_Show_Card_News_To_Show_Game_Final_Ending_Card_News_Panel()
     {
-        isLookAround = true;
         // 카드 뉴스 보기 화면 뜨기 전 혹시 모르니 한 번 더 index 초기화
         index = 0;
         count_Text_Game_Final.GetComponent<Text>().text = 1 + "/" + game_Sprites.Length;
@@ -209,7 +202,6 @@ public class Look_Around_Script : MonoBehaviour
     // Show Card News Panel에서 랜덤채팅 section의 초기 종료 엔딩 보기 버튼 클릭 시 실행
     public void From_Show_Card_News_To_Show_Random_Chatting_Middle_Ending_Card_News_Panel()
     {
-        isLookAround = true;
         // 카드 뉴스 보기 화면 뜨기 전 혹시 모르니 한 번 더 index 초기화
         index = 0;
         count_Text_Random_Chatting_Middle.GetComponent<Text>().text = 1 + "/" + middle_Ending02_Sprites.Length;
@@ -233,7 +225,6 @@ public class Look_Around_Script : MonoBehaviour
     // Show Card News Panel에서 랜덤채팅 section의 최종 엔딩 보기 버튼 클릭 시 실행
     public void From_Show_Card_News_To_Show_Random_Chatting_Final_Ending_Card_News_Panel()
     {
-        isLookAround = true;
         // 카드 뉴스 보기 화면 뜨기 전 혹시 모르니 한 번 더 index 초기화
         index = 0;
         count_Text_Random_Chatting_Final.GetComponent<Text>().text = 1 + "/" + random_Chatting_Sprites.Length;
@@ -281,33 +272,12 @@ public class Look_Around_Script : MonoBehaviour
         if (TotalGameManager.instance.Is_Go_Main_Button_Clicked().Equals(true) && TotalGameManager.instance.Is_Go_Look_Around_Button_Clicked().Equals(false))
         { // 처음으로 돌아가기 버튼이 눌렸는데 둘러보기 버튼은 안눌렸으면 Main 화면으로 넘어가기
             SceneManager.LoadScene("Main_Scene");
-        }
-        else if (TotalGameManager.instance.Is_Go_Main_Button_Clicked().Equals(true) && TotalGameManager.instance.Is_Go_Look_Around_Button_Clicked().Equals(true))
+        } else if (TotalGameManager.instance.Is_Go_Main_Button_Clicked().Equals(true) && TotalGameManager.instance.Is_Go_Look_Around_Button_Clicked().Equals(true))
         {
-            if (isLookAround.Equals(true))
-            {
-                // Debug.Log("뒤로가기 실패");
-                // 처음으로 돌아가기 버튼도 눌리고 둘러보기 버튼도 눌렸다면 둘러보기 화면으로 넘어가기
-                //TotalGameManager.instance.Set_Go_Look_Around(false);
-                // SceneManager.LoadScene("Look_Around_Scene");
-                All_Card_News_Panel_Close();
-                show_Card_News_Panel.SetActive(true);
-                isLookAround = false;
-            } else
-            {
-                isLookAround = true;
-                TotalGameManager.instance.Set_Go_Main(true);
-                SceneManager.LoadScene("Main_Scene");
-            }
+            // 처음으로 돌아가기 버튼도 눌리고 둘러보기 버튼도 눌렸다면 둘러보기 화면으로 넘어가기
+            TotalGameManager.instance.Set_Go_Look_Around(false);
+            SceneManager.LoadScene("Look_Around_Scene");
         }
-    }
-
-    public void All_Card_News_Panel_Close()
-    {
-        show_Game_Final_Ending_Card_News_Panel.SetActive(false);
-        show_Game_Middle_Ending_Card_News_Panel.SetActive(false);
-        show_Random_Chatting_Final_Ending_Card_News_Panel.SetActive(false);
-        show_Random_Chatting_Middle_Ending_Card_News_Panel.SetActive(false);
     }
 
     public void Go_Look_Around()
@@ -427,7 +397,7 @@ public class Look_Around_Script : MonoBehaviour
         if (Current_Cardnews == random_Chatting_Sprites[index])
         {
             index--;
-            count_Text_Random_Chatting_Final.GetComponent<Text>().text = (index + 1) + "/" + random_Chatting_Sprites.Length;
+            count_Text_Random_Chatting_Final.GetComponent<Text>().text = (index+1) + "/" + random_Chatting_Sprites.Length;
             Current_Cardnews = random_Chatting_Sprites[index];
             random_Chatting_Final_Cardnews_Image_View.sprite = Current_Cardnews;
         }
@@ -470,7 +440,7 @@ public class Look_Around_Script : MonoBehaviour
             }
             index++;
 
-            count_Text_Random_Chatting_Final.GetComponent<Text>().text = (index + 1) + "/" + random_Chatting_Sprites.Length;
+            count_Text_Random_Chatting_Final.GetComponent<Text>().text = (index+1) + "/" + random_Chatting_Sprites.Length;
 
             Current_Cardnews = random_Chatting_Sprites[index];
             random_Chatting_Final_Cardnews_Image_View.sprite = Current_Cardnews;
