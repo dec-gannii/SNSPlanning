@@ -1,0 +1,580 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0007e6652764fecbdef3860b29e657, type: 3}
+  m_Name: game_1_2
+  m_EditorClassIdentifier: 
+  sheets:
+  - name: g_1_2
+    list:
+    - index: 1
+      MyTurn: 1
+      Script: "\uC544\uB2C8 \uAD1C\uCD98 \uC6D0\uB798\uAC78\uB85C \uD558\uC9C0 \uBB50
+        \uACC4\uC815 \uC0DD\uAE30\uBA74 \uACF5\uBD80 \uB354 \uB0B4\uD33D\uAC1C\uCE60\uB4EF"
+      Who: "\uB098"
+    - index: 2
+      MyTurn: 0
+      Script: "\uAC11\uC790\uAE30 \uACF5\uBD80\uD558\uB294 \uCC99? \uC2E4\uB9DD\uC774\uC57C
+        \uC6B0\uB9AC \uAC19\uC740 \uAC9C\uB9DD\uC778\uC0DD\uC778\uC904 \uC54C\uC558\uB294\uB370"
+      Who: "\uD0C0\uC778"
+    - index: 3
+      MyTurn: 1
+      Script: "\uACF5\uBD80\uD574\uC57C\uC9C0 \uC6B0\uB9AC \uD559\uC0DD\uC774\uB2E4
+        \uC784\uB9C8"
+      Who: "\uB098"
+    - index: 4
+      MyTurn: 0
+      Script: "\uB124 \uD655\uC778\uC774\uC694 \uC81C\uAC00 \uC7A1\uC744\uAC8C\uC694^^"
+      Who: "\uD0C0\uC778"
+    - index: 5
+      MyTurn: 1
+      Script: "\u314B\u314B\uADF8\uB798\uC11C \uC774\uC81C \uACF5\uBD80\uD558\uB7EC
+        \uAC10?"
+      Who: "\uB098"
+    - index: 6
+      MyTurn: 0
+      Script: "\uC544\uB2C8\u314B\u314B \uACC4\uC815 \uB6AB\uC5C8\uC73C\uB2C8\uAE4C
+        \uC774\uC81C \uC990\uACA8\uC57C\uC9C0~"
+      Who: "\uD0C0\uC778"
+    - index: 7
+      MyTurn: 1
+      Script: "\uADF8\uB798 \uB09C \uC790\uB7EC\uAC08\uAC8C "
+      Who: "\uB098"
+    - index: 8
+      MyTurn: 1
+      Script: "\uACC4\uC815 \uB6AB\uC5C8\uB2E4\uACE0 \uB098 \uAE4C\uBA39\uB294 \uAC70
+        \uC544\uB2C8\uC9C0?"
+      Who: "\uB098"
+    - index: 9
+      MyTurn: 0
+      Script: "\uC544\uB2C8\uC9C0~\u314B\u314B \uC798\uC790"
+      Who: "\uD0C0\uC778"
+    - index: 10
+      MyTurn: 1
+      Script: "\uB098 \uC548 \uB180\uC544\uC904 \uAC70\uB0D0\uAD6C"
+      Who: "\uB098"
+    - index: 11
+      MyTurn: 0
+      Script: "\uC544 \uAE08\uBC29 \uAC10 \uC774\uBC88 \uD310\uB9CC \uD558\uACE0
+        \uAC08\uAC8C"
+      Who: "\uD0C0\uC778"
+    - index: 12
+      MyTurn: 1
+      Script: "\uACC4\uC815 \uB6AB\uC73C\uB2C8\uAE4C \uC88B\uC74C?"
+      Who: "\uB098"
+    - index: 13
+      MyTurn: 0
+      Script: "\uAC00\uB054 \uD575\uB098\uC624\uBA74 \uC9DC\uC99D\uB098\uAE30\uB294
+        \uD55C\uB370 \uB2E4\uB978 \uAC83\uB3C4 \uBE44\uC2B7\uD558\uB2C8\uAE4C"
+      Who: "\uD0C0\uC778"
+    - index: 14
+      MyTurn: 1
+      Script: "\uC624\u2026\uAE00\uCFE4"
+      Who: "\uB098"
+    - index: 15
+      MyTurn: 0
+      Script: "\uB108 \uAC19\uC774 \uD558\uBA74 \uC548\uB3FC? \uAC19\uC774 \uB4C0\uCFFC\uB4DC
+        \uD558\uBA74\uC11C \uC194\uB85C \uD50C\uB808\uC774 \uB298\uB9AC\uBA74 \uC88B\uC744
+        \uAC70 \uAC19\uC740\uB370"
+      Who: "\uD0C0\uC778"
+    - index: 16
+      MyTurn: 1
+      Script: "\uAF2D \uB098 \uC544\uB2C8\uC5B4\uB3C4 \uAD1C\uCC2E\uC796\uC544 \uCF54\uC154\uB2C8
+        \uBC29\uC5D0\uC11C \uC0AC\uB78C \uCC3E\uC544\uBD10\uB3C4 \uB418\uACE0"
+      Who: "\uB098"
+    - index: 17
+      MyTurn: 0
+      Script: "\uADF8\uB807\uAE34 \uD55C\uB370 \uB108\uB791 \uD558\uB294\uAC8C \uC7AC\uBC0C\uC5B4\uC11C
+        \uC2E4\uB825\uB3C4 \uB531 \uB0B4\uAC00 \uCE90\uB9AC\uD558\uAE30 \uC88B\uC740
+        \uAC83\uB3C4 \uC788\uACE0\u314B\u314B"
+      Who: "\uD0C0\uC778"
+    - index: 18
+      MyTurn: 0
+      Script: "\uC194\uC9C1\uD788 \uB108\uB3C4 \uC7AC\uBC0C\uC796\uC544 \uB098\uB791
+        \uD558\uB294 \uAC70"
+      Who: "\uD0C0\uC778"
+    - index: 19
+      MyTurn: 1
+      Script: "\uBB50 \uADF8\uAC74 \uADF8\uB807\uC9C0"
+      Who: "\uB098"
+    - index: 20
+      MyTurn: 0
+      Script: dkfjskfjl.zip
+      Who: "\uD0C0\uC778"
+    - index: 21
+      MyTurn: 0
+      Script: "\uAC1C\uC778\uC815\uBCF4 \uC2E0\uACBD\uC4F0\uC774\uBA74 \uC548\uC54C\uB824\uC918\uB3C4
+        \uB3FC \uC774\uAC70 \uC124\uCE58\uD574\uB3C4 \uAC8C\uC784 \uAC00\uB2A5"
+      Who: "\uD0C0\uC778"
+    - index: 22
+      MyTurn: 0
+      Script: "\uBD88\uBC95\uD30C\uC77C\uC774\uB77C \uC548\uC54C\uB824\uC8FC\uB824\uACE0
+        \uD588\uB294\uB370 \uB108\uB2C8\uAE4C \uC54C\uB824\uC900\uB2E4"
+      Who: "\uD0C0\uC778"
+    - index: 23
+      MyTurn: 0
+      Script: "\u314E\uC120\uBB3C"
+      Who: "\uD0C0\uC778"
+    - index: 24
+      MyTurn: 1
+      Script: "\uBB50\uC784 \uC774\uAC70"
+      Who: "\uB098"
+    - index: 25
+      MyTurn: 0
+      Script: "\uB108 \uD569\uC131\uC0AC\uC9C4 \u314B\u314B \uC601\uD1B5 \uBC1B\uC544\uBD10"
+      Who: "\uD0C0\uC778"
+    - index: 26
+      MyTurn: 0
+      Script: "\uB0B4\uAC00 \uBD80\uD0C1\uD558\uB294 \uAC70 \uD558\uB098\uB9CC \uD558\uBA74
+        \uB2E4 \uC9C0\uC6CC\uB4DC\uB9BC"
+      Who: "\uD0C0\uC778"
+    - index: 27
+      MyTurn: 0
+      Script: "\uC548 \uBC1B\uC544? \uB531 \uB450\uBC88 \uB354 \uAE30\uD68C\uC904\uAC8C"
+      Who: "\uD0C0\uC778"
+    - index: 28
+      MyTurn: 0
+      Script: "\uC548\uBC1B\uC73C\uBA74 \uC774 \uC0AC\uC9C4\uB4E4 \uB108 \uACC4\uC815\uC73C\uB85C
+        \uCE5C\uAD6C\uB4E4\uD55C\uD14C \uBCF4\uB0B8\uB2E4?\_"
+      Who: "\uD0C0\uC778"
+    - index: 29
+      MyTurn: 0
+      Script: "\uC544\uAE4C \uBCF4\uB0B8 \uD30C\uC77C\uB85C \uC774\uBBF8 \uB108 \uC815\uBCF4
+        \uD138\uB9BC\u314B\u314B\u314B"
+      Who: "\uD0C0\uC778"
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
+    - index: 0
+      MyTurn: 0
+      Script: 
+      Who: 
